@@ -17,7 +17,7 @@
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="script.bingie.manage.widgets.fen.light" version="1.3.0" name="Bingie Manage Widgets (Fen Light)" provider-name="ChatGPDeta">
+</addon><addon id="script.bingie.manage.widgets.fen.light" version="1.3.2" name="Bingie Manage Widgets (Fen Light)" provider-name="ChatGPDeta">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
     </requires>
@@ -32,7 +32,7 @@
             <icon>icon.png</icon>            
         </assets>
     </extension>
-</addon><addon id="skin.bingie.fen.light.mod" version="1.2.2" name="Bingie (Fen Light Mod)" provider-name="matke/deta">
+</addon><addon id="skin.bingie.fen.light.mod" version="1.2.3" name="Bingie (Fen Light Mod)" provider-name="matke/deta">
 	<requires>
 		<import version="5.17.0" addon="xbmc.gui" />
 		<import addon="script.bingie.helper" version="1.1.2" />

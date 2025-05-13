@@ -9,7 +9,7 @@
     </extension>
     <extension point="xbmc.addon.metadata">
         <summary>NedFlix Repository</summary>
-        <description>A repository for NedFlix skin.</description>
+        <description>A repo for the NedFlix skin and other tools.</description>
         <disclaimer />
         <platform>all</platform>
         <assets>
@@ -32,7 +32,7 @@
             <icon>icon.png</icon>            
         </assets>
     </extension>
-</addon><addon id="skin.bingie.fen.light.mod" version="1.2.4" name="Bingie/NedFlix (Fen Light Mod)" provider-name="matke/deta">
+</addon><addon id="skin.bingie.fen.light.mod" version="1.2.6" name="Nedflix" provider-name="matke/deta">
 	<requires>
 		<import version="5.17.0" addon="xbmc.gui" />
 		<import addon="script.bingie.helper" version="1.1.2" />
@@ -48,17 +48,17 @@
         <res aspect="16:9" default="true" folder="1080i" height="1080" width="1920" />
     </extension>
 	<extension point="xbmc.addon.metadata">
-		<summary lang="en_GB">Kodi skin with Netflix layout designed to work with Fen Light</summary>
+		<summary lang="en_GB">Kodi skin with a Netflix style layout designed to work with Fen Light</summary>
 		<summary lang="zh_CN">Netflix布局Kodi皮肤。</summary>
-		<description lang="en_GB">Bingie – The home of your favorite movies and series!</description>
+		<description lang="en_GB">Okily Dokily!</description>
 		<description lang="zh_CN">Bingie -你最喜欢的电影和节目的家！</description>
 		<platform>all</platform>
 		<license>GPL v2.0</license>
 		<forum />
 		<source />
 		<assets>
-			<icon>resources/icon.png</icon>
-			<fanart>resources/fanart.jpg</fanart>			
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>			
 		</assets>
 	</extension>
 </addon></addons>

@@ -417,23 +417,6 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">10</property>
-			<label>Manage Bingie</label>
-			<label2>Program</label2>
-			<icon>DefaultAddon.png</icon>
-			<thumb>thumb</thumb>
-			<property name="labelID">script.bingie.manage.widgets.fen.light</property>
-			<property name="defaultID">script.bingie.manage.widgets.fen.light</property>
-			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
-			<onclick>RunAddOn(script.bingie.manage.widgets.fen.light)</onclick>
-			<property name="path">RunAddOn(script.bingie.manage.widgets.fen.light)</property>
-			<property name="list">RunAddOn(script.bingie.manage.widgets.fen.light)</property>
-			<visible>[String.IsEqual(System.ProfileName,Deta)] + String.IsEqual(Container(900).ListItem.Property(submenuVisibility),powermenu)</visible>
-			<property name="group">powermenu</property>
-			<property name="isSubmenu">True</property>
-			</item>
-		<item id="2">
-			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[5]</label>
 			<label2>Kodi Command</label2>
 			<icon>common/settings1.png</icon>
@@ -444,6 +427,23 @@
 			<onclick>ActivateWindow(Settings)</onclick>
 			<property name="path">ActivateWindow(Settings)</property>
 			<property name="list">Settings</property>
+			<visible>[String.IsEqual(System.ProfileName,Deta)] + String.IsEqual(Container(900).ListItem.Property(submenuVisibility),powermenu)</visible>
+			<property name="group">powermenu</property>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">10</property>
+			<label>Manage Bingie</label>
+			<label2>Program</label2>
+			<icon>DefaultAddon.png</icon>
+			<thumb>thumb</thumb>
+			<property name="labelID">script.bingie.manage.widgets.fen.light</property>
+			<property name="defaultID">script.bingie.manage.widgets.fen.light</property>
+			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
+			<onclick>RunAddOn(script.bingie.manage.widgets.fen.light)</onclick>
+			<property name="path">RunAddOn(script.bingie.manage.widgets.fen.light)</property>
+			<property name="list">RunAddOn(script.bingie.manage.widgets.fen.light)</property>
 			<visible>[String.IsEqual(System.ProfileName,Deta)] + String.IsEqual(Container(900).ListItem.Property(submenuVisibility),powermenu)</visible>
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
@@ -1004,23 +1004,6 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">10</property>
-			<label>Manage Bingie</label>
-			<label2>Program</label2>
-			<icon>DefaultAddon.png</icon>
-			<thumb>thumb</thumb>
-			<property name="labelID">script.bingie.manage.widgets.fen.light</property>
-			<property name="defaultID">script.bingie.manage.widgets.fen.light</property>
-			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
-			<onclick>RunAddOn(script.bingie.manage.widgets.fen.light)</onclick>
-			<property name="path">RunAddOn(script.bingie.manage.widgets.fen.light)</property>
-			<property name="list">RunAddOn(script.bingie.manage.widgets.fen.light)</property>
-			<visible>String.IsEqual(System.ProfileName,Deta)</visible>
-			<property name="group">powermenu</property>
-			<property name="isSubmenu">True</property>
-			</item>
-		<item id="2">
-			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[5]</label>
 			<label2>Kodi Command</label2>
 			<icon>common/settings1.png</icon>
@@ -1031,6 +1014,23 @@
 			<onclick>ActivateWindow(Settings)</onclick>
 			<property name="path">ActivateWindow(Settings)</property>
 			<property name="list">Settings</property>
+			<visible>String.IsEqual(System.ProfileName,Deta)</visible>
+			<property name="group">powermenu</property>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">10</property>
+			<label>Manage Bingie</label>
+			<label2>Program</label2>
+			<icon>DefaultAddon.png</icon>
+			<thumb>thumb</thumb>
+			<property name="labelID">script.bingie.manage.widgets.fen.light</property>
+			<property name="defaultID">script.bingie.manage.widgets.fen.light</property>
+			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
+			<onclick>RunAddOn(script.bingie.manage.widgets.fen.light)</onclick>
+			<property name="path">RunAddOn(script.bingie.manage.widgets.fen.light)</property>
+			<property name="list">RunAddOn(script.bingie.manage.widgets.fen.light)</property>
 			<visible>String.IsEqual(System.ProfileName,Deta)</visible>
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
@@ -1167,23 +1167,6 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">10</property>
-			<label>Manage Bingie</label>
-			<label2>Program</label2>
-			<icon>DefaultAddon.png</icon>
-			<thumb>thumb</thumb>
-			<property name="labelID">script.bingie.manage.widgets.fen.light</property>
-			<property name="defaultID">script.bingie.manage.widgets.fen.light</property>
-			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
-			<onclick>RunAddOn(script.bingie.manage.widgets.fen.light)</onclick>
-			<property name="path">RunAddOn(script.bingie.manage.widgets.fen.light)</property>
-			<property name="list">RunAddOn(script.bingie.manage.widgets.fen.light)</property>
-			<visible>[String.IsEqual(System.ProfileName,Deta)] + String.IsEqual(Window(10000).Property(submenuVisibility),powermenu)</visible>
-			<property name="group">powermenu</property>
-			<property name="isSubmenu">True</property>
-			</item>
-		<item id="2">
-			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[5]</label>
 			<label2>Kodi Command</label2>
 			<icon>common/settings1.png</icon>
@@ -1194,6 +1177,23 @@
 			<onclick>ActivateWindow(Settings)</onclick>
 			<property name="path">ActivateWindow(Settings)</property>
 			<property name="list">Settings</property>
+			<visible>[String.IsEqual(System.ProfileName,Deta)] + String.IsEqual(Window(10000).Property(submenuVisibility),powermenu)</visible>
+			<property name="group">powermenu</property>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">10</property>
+			<label>Manage Bingie</label>
+			<label2>Program</label2>
+			<icon>DefaultAddon.png</icon>
+			<thumb>thumb</thumb>
+			<property name="labelID">script.bingie.manage.widgets.fen.light</property>
+			<property name="defaultID">script.bingie.manage.widgets.fen.light</property>
+			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
+			<onclick>RunAddOn(script.bingie.manage.widgets.fen.light)</onclick>
+			<property name="path">RunAddOn(script.bingie.manage.widgets.fen.light)</property>
+			<property name="list">RunAddOn(script.bingie.manage.widgets.fen.light)</property>
 			<visible>[String.IsEqual(System.ProfileName,Deta)] + String.IsEqual(Window(10000).Property(submenuVisibility),powermenu)</visible>
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>

@@ -1,0 +1,16 @@
+<addon id="script.nedflix.manager" version="1.3.3" name="Nedflix Manager" provider-name="ChatGPDeta">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.script" library="default.py">
+        <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Manage Nedflix themes and widgets</summary>
+        <description>An addon to help manage themes and widgets within the Nedflix skin more easily.</description>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>            
+        </assets>
+    </extension>
+</addon>

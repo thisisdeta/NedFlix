@@ -434,16 +434,17 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">10</property>
-			<label>Manage Bingie</label>
+			<label>Manage Nedflix</label>
 			<label2>Program</label2>
 			<icon>DefaultAddon.png</icon>
 			<thumb>thumb</thumb>
-			<property name="labelID">script.bingie.manage.widgets.fen.light</property>
-			<property name="defaultID">script.bingie.manage.widgets.fen.light</property>
+			<property name="labelID">script.nedflix.manager</property>
+			<property name="defaultID">script.nedflix.manager</property>
+			<property name="translatedPath">RunAddOn(script.nedflix.manager)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
-			<onclick>RunAddOn(script.bingie.manage.widgets.fen.light)</onclick>
-			<property name="path">RunAddOn(script.bingie.manage.widgets.fen.light)</property>
-			<property name="list">RunAddOn(script.bingie.manage.widgets.fen.light)</property>
+			<onclick>RunAddOn(script.nedflix.manager)</onclick>
+			<property name="path">RunAddOn(script.nedflix.manager)</property>
+			<property name="list">RunAddOn(script.nedflix.manager)</property>
 			<visible>[String.IsEqual(System.ProfileName,Deta)] + String.IsEqual(Container(900).ListItem.Property(submenuVisibility),powermenu)</visible>
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
@@ -1021,16 +1022,17 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">10</property>
-			<label>Manage Bingie</label>
+			<label>Manage Nedflix</label>
 			<label2>Program</label2>
 			<icon>DefaultAddon.png</icon>
 			<thumb>thumb</thumb>
-			<property name="labelID">script.bingie.manage.widgets.fen.light</property>
-			<property name="defaultID">script.bingie.manage.widgets.fen.light</property>
+			<property name="labelID">script.nedflix.manager</property>
+			<property name="defaultID">script.nedflix.manager</property>
+			<property name="translatedPath">RunAddOn(script.nedflix.manager)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
-			<onclick>RunAddOn(script.bingie.manage.widgets.fen.light)</onclick>
-			<property name="path">RunAddOn(script.bingie.manage.widgets.fen.light)</property>
-			<property name="list">RunAddOn(script.bingie.manage.widgets.fen.light)</property>
+			<onclick>RunAddOn(script.nedflix.manager)</onclick>
+			<property name="path">RunAddOn(script.nedflix.manager)</property>
+			<property name="list">RunAddOn(script.nedflix.manager)</property>
 			<visible>String.IsEqual(System.ProfileName,Deta)</visible>
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>
@@ -1184,16 +1186,17 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">10</property>
-			<label>Manage Bingie</label>
+			<label>Manage Nedflix</label>
 			<label2>Program</label2>
 			<icon>DefaultAddon.png</icon>
 			<thumb>thumb</thumb>
-			<property name="labelID">script.bingie.manage.widgets.fen.light</property>
-			<property name="defaultID">script.bingie.manage.widgets.fen.light</property>
+			<property name="labelID">script.nedflix.manager</property>
+			<property name="defaultID">script.nedflix.manager</property>
+			<property name="translatedPath">RunAddOn(script.nedflix.manager)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
-			<onclick>RunAddOn(script.bingie.manage.widgets.fen.light)</onclick>
-			<property name="path">RunAddOn(script.bingie.manage.widgets.fen.light)</property>
-			<property name="list">RunAddOn(script.bingie.manage.widgets.fen.light)</property>
+			<onclick>RunAddOn(script.nedflix.manager)</onclick>
+			<property name="path">RunAddOn(script.nedflix.manager)</property>
+			<property name="list">RunAddOn(script.nedflix.manager)</property>
 			<visible>[String.IsEqual(System.ProfileName,Deta)] + String.IsEqual(Window(10000).Property(submenuVisibility),powermenu)</visible>
 			<property name="group">powermenu</property>
 			<property name="isSubmenu">True</property>

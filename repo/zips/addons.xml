@@ -17,7 +17,7 @@
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="script.nedflix.manager" version="1.3.3" name="Nedflix Manager" provider-name="ChatGPDeta">
+</addon><addon id="script.nedflix.manager" version="1.3.4" name="Nedflix Manager" provider-name="ChatGPDeta">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
     </requires>

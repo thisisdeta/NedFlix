@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repository.nedflix" name="NedFlix Repository" version="1.0.0" provider-name="Deta">
+<addon id="repository.nedflix" name="Nedflix Repository" version="1.0.0" provider-name="Deta">
     <extension point="xbmc.addon.repository" name="Example Repository">
         <dir>
             <info compressed="false">https://raw.githubusercontent.com/thisisdeta/nedflix/master/repo/zips/addons.xml</info>
@@ -8,8 +8,8 @@
         </dir>
     </extension>
     <extension point="xbmc.addon.metadata">
-        <summary>NedFlix Repository</summary>
-        <description>A repo for the NedFlix skin and other tools.</description>
+        <summary>Nedflix Repository</summary>
+        <description>A repo for the Nedflix skin and other tools.</description>
         <disclaimer></disclaimer>
         <platform>all</platform>
         <assets>

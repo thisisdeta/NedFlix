@@ -409,7 +409,7 @@ def change_bingie_logo():
 
 def main_menu():
     options = [
-        "Change Bingie Theme",
+        "Change Theme",
         "Move Widgets",       
         "Rename Widgets",
         "Delete Widgets",        
@@ -417,7 +417,7 @@ def main_menu():
         "Save and Force Quit Kodi (All Widgets)",
         "Exit"
     ]
-    return xbmcgui.Dialog().select("Bingie Manager (Fen Light)", options)
+    return xbmcgui.Dialog().select("Nedflix Manager", options)
 
 if __name__ == '__main__':
     SETTINGS_FILE = get_kodi_userdata_path()  # Hub settings XML file

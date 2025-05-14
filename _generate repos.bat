@@ -1,0 +1,2 @@
+python _repo_generator.py
+pause

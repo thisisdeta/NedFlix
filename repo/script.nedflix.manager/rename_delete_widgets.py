@@ -176,7 +176,7 @@ def rename_home_widget():
     import xbmcvfs
 
     # Define the path to the properties file.
-    PROPERTIES_FILE = xbmcvfs.translatePath("special://userdata/addon_data/script.skinshortcuts/skin.bingie.fen.light.mod.properties")
+    PROPERTIES_FILE = xbmcvfs.translatePath("special://userdata/addon_data/script.skinshortcuts/skin.nedflix.properties")
     dlg = xbmcgui.Dialog()
 
     while True:
@@ -246,7 +246,7 @@ def delete_home_widget():
     After a successful deletion, the delete menu is automatically re-displayed.
     """
     import xbmcgui, xbmcvfs, json
-    PROPERTIES_FILE = xbmcvfs.translatePath("special://userdata/addon_data/script.skinshortcuts/skin.bingie.fen.light.mod.properties")
+    PROPERTIES_FILE = xbmcvfs.translatePath("special://userdata/addon_data/script.skinshortcuts/skin.nedflix.properties")
     dlg = xbmcgui.Dialog()
 
     while True:
@@ -359,7 +359,7 @@ def rename_hub_widget(settings_file):
 
             # Define slot_index explicitly after the XML update.
             slot_index = actual_index + 1
-            PROPERTIES_FILE = xbmcvfs.translatePath("special://userdata/addon_data/script.skinshortcuts/skin.bingie.fen.light.mod.properties")
+            PROPERTIES_FILE = xbmcvfs.translatePath("special://userdata/addon_data/script.skinshortcuts/skin.nedflix.properties")
             try:
                 update_hub_properties_json(PROPERTIES_FILE, slot_index, new_name, is_home_widget=False)
             except Exception as e:
@@ -426,7 +426,7 @@ def delete_widget(settings_file, home_xml_file):
             with open(settings_file, 'w', encoding='utf-8') as f:
                 f.write(new_content)
             slot_index = actual_index + 1
-            PROPERTIES_FILE = xbmcvfs.translatePath("special://userdata/addon_data/script.skinshortcuts/skin.bingie.fen.light.mod.properties")
+            PROPERTIES_FILE = xbmcvfs.translatePath("special://userdata/addon_data/script.skinshortcuts/skin.nedflix.properties")
             update_hub_properties_json(PROPERTIES_FILE, slot_index, "")
             SKIN_XML_FILE = xbmcvfs.translatePath("special://userdata/addon_data/script.skinshortcuts/skin.xml")
             remove_widget_includes(SKIN_XML_FILE, "2520")  # Adjust widgetid if needed
@@ -509,7 +509,7 @@ def rename_widget(settings_file, home_xml_file):
 
             # Define slot_index explicitly here.
             slot_index = actual_index + 1
-            PROPERTIES_FILE = xbmcvfs.translatePath("special://userdata/addon_data/script.skinshortcuts/skin.bingie.fen.light.mod.properties")
+            PROPERTIES_FILE = xbmcvfs.translatePath("special://userdata/addon_data/script.skinshortcuts/skin.nedflix.properties")
             try:
                 update_hub_properties_json(PROPERTIES_FILE, slot_index, new_name, is_home_widget=False)
             except Exception as e:
@@ -522,40 +522,3 @@ def rename_widget(settings_file, home_xml_file):
             continue
 
 
-def main_menu():
-    options = [
-        "Move Widgets",       # Combined option
-        "Rename Widgets",
-        "Delete Widgets",
-        "Save and Refresh (Home Widgets Only)",
-        "Save and Force Quit Kodi",
-        "Exit"
-    ]
-    return xbmcgui.Dialog().select("Bingie Widget Manager (Fen Light)", options)
-
-# -----------------------------
-# Main Entry Point
-# -----------------------------
-if __name__ == '__main__':
-    SETTINGS_FILE = os.path.join(xbmcvfs.translatePath("special://userdata"), "addon_data", "skin.bingie.fen.light.mod", "settings.xml")
-    # Manually define HOME_WIDGETS_FILE as the XML file used by the home widget ordering module.
-    HOME_WIDGETS_FILE = xbmcvfs.translatePath("special://home/addons/skin.bingie.fen.light.mod/1080i/script-skinshortcuts-includes.xml")
-    
-    while True:
-        choice = main_menu()
-        if choice == 0:
-            reorder_widgets_menu(SETTINGS_FILE)
-        elif choice == 1:
-            # Rename workflow:
-            rename_widget(SETTINGS_FILE, HOME_WIDGETS_FILE)
-        elif choice == 2:
-            # Delete workflow:
-            delete_widget_main(SETTINGS_FILE, HOME_WIDGETS_FILE)
-        elif choice == 3:
-            xbmc.executebuiltin("ReloadSkin()")
-            time.sleep(3)
-            sys.exit()
-        elif choice == 4:
-            xbmc.executebuiltin("RunAddon(plugin.close.kodi)")
-        elif choice == 5:
-            sys.exit()

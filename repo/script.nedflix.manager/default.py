@@ -22,7 +22,7 @@ HUB_FRIENDLY_MAPPING = {
 
 def get_kodi_userdata_path():
     kodi_base_path = xbmcvfs.translatePath("special://userdata")
-    return os.path.join(kodi_base_path, "addon_data", "skin.bingie.fen.light.mod", "settings.xml")
+    return os.path.join(kodi_base_path, "addon_data", "skin.nedflix", "settings.xml")
 
 def extract_hub_names(xml_file):
     """
@@ -287,16 +287,16 @@ def change_bingie_logo():
     display_labels = [option[0] for option in logo_options]
     
     # Translate the file path for the IncludesHomeBingie.xml file.
-    file_path = xbmcvfs.translatePath("special://home/addons/skin.bingie.fen.light.mod/1080i/IncludesHomeBingie.xml")
+    file_path = xbmcvfs.translatePath("special://home/addons/skin.nedflix/1080i/IncludesHomeBingie.xml")
     if not xbmcvfs.exists(file_path):
         dialog.ok("Error", "File not found:\n" + file_path)
         return
     
     # Translate the file path for the Theme Variable.theme file.
-    theme_file_path = xbmcvfs.translatePath("special://home/addons/skin.bingie.fen.light.mod/extras/skinthemes/Update Theme.theme")
+    theme_file_path = xbmcvfs.translatePath("special://home/addons/skin.nedflix/extras/skinthemes/Update Theme.theme")
     
     # Translate the file path for the Custom_1159_MPAATopBar.xml file.
-    custom_file_path = xbmcvfs.translatePath("special://home/addons/skin.bingie.fen.light.mod/1080i/Custom_1159_MPAATopBar.xml")
+    custom_file_path = xbmcvfs.translatePath("special://home/addons/skin.nedflix/1080i/Custom_1159_MPAATopBar.xml")
     
     # Define the list of theme data keys that should get updated in the theme file.
     # Add or remove keys as needed.
@@ -422,7 +422,7 @@ def main_menu():
 if __name__ == '__main__':
     SETTINGS_FILE = get_kodi_userdata_path()  # Hub settings XML file
     # Define the home widgets XML file manually
-    HOME_WIDGETS_FILE = xbmcvfs.translatePath("special://home/addons/skin.bingie.fen.light.mod/1080i/script-skinshortcuts-includes.xml")
+    HOME_WIDGETS_FILE = xbmcvfs.translatePath("special://home/addons/skin.nedflix/1080i/script-skinshortcuts-includes.xml")
     
     while True:
         choice = main_menu()

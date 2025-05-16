@@ -5,7 +5,7 @@ import xbmcgui
 import xbmcvfs
 
 # Define the properties file path.
-PROPERTIES_PATH = xbmcvfs.translatePath("special://userdata/addon_data/script.skinshortcuts/skin.bingie.fen.light.mod.properties")
+PROPERTIES_PATH = xbmcvfs.translatePath("special://userdata/addon_data/script.skinshortcuts/skin.nedflix.properties")
 
 def load_properties():
     """

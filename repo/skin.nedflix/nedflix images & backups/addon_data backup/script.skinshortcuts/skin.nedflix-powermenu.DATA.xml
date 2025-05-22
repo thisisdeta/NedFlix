@@ -1,0 +1,86 @@
+<shortcuts>
+	<shortcut>
+		<defaultID>5</defaultID>
+		<label>5</label>
+		<label2>Kodi Command</label2>
+		<icon>common/settings1.png</icon>
+		<thumb />
+		<action>ActivateWindow(Settings)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID>script.nedflix.manager</defaultID>
+		<label>Manage Nedflix</label>
+		<label2>Program</label2>
+		<icon>DefaultAddon.png</icon>
+		<thumb>thumb</thumb>
+		<action>RunAddOn(script.nedflix.manager)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID>31501</defaultID>
+		<label>Refresh</label>
+		<label2>Kodi Command</label2>
+		<icon>common/reload-skin.png</icon>
+		<thumb />
+		<action>ReloadSkin()</action>
+		</shortcut>
+	<shortcut>
+		<defaultID>videoadd-ons</defaultID>
+		<label>Video add-ons</label>
+		<label2>Favourite</label2>
+		<icon>DefaultFolder.png</icon>
+		<thumb>DefaultAddonVideo.png</thumb>
+		<action>ActivateWindow(10040,"addons://user/xbmc.addon.video",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID>plugin.video.the-loop/get_list/aHR0cHM6Ly9sb29wYWRkb24udWsvZmlsZXMvazE5L3htbHMvRmlnaHRab25lMTkvUmVwbGF5cy9XcmVzdGxpbmdSZXBsYXlzL3dyZXN0bGluZ21haW4uanNvbg==</defaultID>
+		<label>Loop Wrestling</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://https%3a%2f%2fi.imgur.com%2fMWfeBK2.jpg/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.the-loop/get_list/aHR0cHM6Ly9sb29wYWRkb24udWsvZmlsZXMvazE5L3htbHMvRmlnaHRab25lMTkvUmVwbGF5cy9XcmVzdGxpbmdSZXBsYXlzL3dyZXN0bGluZ21haW4uanNvbg==",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID>colorred-forceclosekodi-color</defaultID>
+		<label>Exit Nedflix</label>
+		<label2>Favourite</label2>
+		<icon>DefaultFolder.png</icon>
+		<thumb />
+		<action>RunAddon("plugin.close.kodi",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID>31629</defaultID>
+		<label>$SKIN[31629|skin.bingie.fen.light.mod|Exit Bingie]</label>
+		<label2>Kodi Command</label2>
+		<icon>common/exit1.png</icon>
+		<thumb />
+		<action>Quit()</action>
+		<disabled>True</disabled>
+		</shortcut>
+	<shortcut>
+		<defaultID>13013</defaultID>
+		<label>13013</label>
+		<label2>Kodi Command</label2>
+		<icon>common/reboot1.png</icon>
+		<thumb />
+		<action>Reset()</action>
+		<disabled>True</disabled>
+		</shortcut>
+	<shortcut>
+		<defaultID>13016</defaultID>
+		<label>13016</label>
+		<label2>Kodi Command</label2>
+		<icon>common/shutdown1.png</icon>
+		<thumb />
+		<action>Powerdown()</action>
+		<disabled>True</disabled>
+		</shortcut>
+	<shortcut>
+		<defaultID>20126</defaultID>
+		<label>20126</label>
+		<label2>Kodi Command</label2>
+		<icon>common/lock.png</icon>
+		<thumb />
+		<action>System.LogOff</action>
+		<visible>System.HasLoginScreen</visible>
+		</shortcut>
+	</shortcuts>

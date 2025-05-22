@@ -164,7 +164,7 @@
                 <visible>!String.IsEmpty(Window.Property(SearchPosterAnimation)) + !Skin.HasSetting(EnableCustomBingieSearch) + [Container(500).IsUpdating + Control.IsVisible(500)]</visible>
             </control>
             <control type="label" id="987">
-                <visible>!$EXP[IsActualKeyboardActive]</visible>
+                <visible>!$EXP[IsActualKeyboardActive] + !Control.HasFocus(660) + !Control.HasFocus(670)</visible>
                 <top>5</top>
                 <width>1130</width>
                 <height>70</height>
@@ -173,6 +173,36 @@
                 <aligny>top</aligny>
                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                 <label>$VAR[SearchString]</label>
+				<animation effect="slide" end="50" time="0" condition="!Skin.HasSetting(EnableCustomBingieSearch) + [[Container(510).IsUpdating | Container(520).IsUpdating | Container(530).IsUpdating | Container(540).IsUpdating | Container(550).IsUpdating | Container(560).IsUpdating | Container(570).IsUpdating | Container(580).IsUpdating | Container(590).IsUpdating | 
+			Container(610).IsUpdating | Container(620).IsUpdating | Container(630).IsUpdating | Container(640).IsUpdating | Container(650).IsUpdating | Container(660).IsUpdating | Container(670).IsUpdating | Container(680).IsUpdating | Container(690).IsUpdating | Container(700).IsUpdating] + !String.IsEmpty(Skin.String(CustomSearchTerm))] | Skin.HasSetting(EnableCustomBingieSearch) + [[Container(5041).IsUpdating | Container(5042).IsUpdating | Container(5043).IsUpdating | Container(5044).IsUpdating | Container(5045).IsUpdating | Container(5046).IsUpdating | Container(5047).IsUpdating | Container(5048).IsUpdating | 
+			Container(5049).IsUpdating | Container(5050).IsUpdating | Container(5051).IsUpdating | Container(5052).IsUpdating | Container(5053).IsUpdating | Container(5054).IsUpdating | Container(5055).IsUpdating | Container(5056).IsUpdating | Container(5057).IsUpdating | Container(5058).IsUpdating | Container(5059).IsUpdating | Container(5060).IsUpdating] + !String.IsEmpty(Skin.String(CustomSearchTerm))] | !String.IsEmpty(Window.Property(SearchPosterAnimation)) + !Skin.HasSetting(EnableCustomBingieSearch) + [Container(500).IsUpdating + Control.IsVisible(500)]">Conditional</animation>
+            </control>
+			
+			<control type="label" id="987">
+                <visible>!$EXP[IsActualKeyboardActive] + Control.HasFocus(660) + !Container(660).IsUpdating</visible>
+                <top>5</top>
+                <width>1130</width>
+                <height>70</height>
+                <font>Reg42</font>
+                <align>left</align>
+                <aligny>top</aligny>
+                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <label>Film results for "$VAR[SearchString]"</label>
+				<animation effect="slide" end="50" time="0" condition="!Skin.HasSetting(EnableCustomBingieSearch) + [[Container(510).IsUpdating | Container(520).IsUpdating | Container(530).IsUpdating | Container(540).IsUpdating | Container(550).IsUpdating | Container(560).IsUpdating | Container(570).IsUpdating | Container(580).IsUpdating | Container(590).IsUpdating | 
+			Container(610).IsUpdating | Container(620).IsUpdating | Container(630).IsUpdating | Container(640).IsUpdating | Container(650).IsUpdating | Container(660).IsUpdating | Container(670).IsUpdating | Container(680).IsUpdating | Container(690).IsUpdating | Container(700).IsUpdating] + !String.IsEmpty(Skin.String(CustomSearchTerm))] | Skin.HasSetting(EnableCustomBingieSearch) + [[Container(5041).IsUpdating | Container(5042).IsUpdating | Container(5043).IsUpdating | Container(5044).IsUpdating | Container(5045).IsUpdating | Container(5046).IsUpdating | Container(5047).IsUpdating | Container(5048).IsUpdating | 
+			Container(5049).IsUpdating | Container(5050).IsUpdating | Container(5051).IsUpdating | Container(5052).IsUpdating | Container(5053).IsUpdating | Container(5054).IsUpdating | Container(5055).IsUpdating | Container(5056).IsUpdating | Container(5057).IsUpdating | Container(5058).IsUpdating | Container(5059).IsUpdating | Container(5060).IsUpdating] + !String.IsEmpty(Skin.String(CustomSearchTerm))] | !String.IsEmpty(Window.Property(SearchPosterAnimation)) + !Skin.HasSetting(EnableCustomBingieSearch) + [Container(500).IsUpdating + Control.IsVisible(500)]">Conditional</animation>
+            </control>
+			
+			<control type="label" id="987">
+                <visible>!$EXP[IsActualKeyboardActive] + Control.HasFocus(670) + !Container(670).IsUpdating</visible>
+                <top>5</top>
+                <width>1130</width>
+                <height>70</height>
+                <font>Reg42</font>
+                <align>left</align>
+                <aligny>top</aligny>
+                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <label>TV results for "$VAR[SearchString]"</label>
 				<animation effect="slide" end="50" time="0" condition="!Skin.HasSetting(EnableCustomBingieSearch) + [[Container(510).IsUpdating | Container(520).IsUpdating | Container(530).IsUpdating | Container(540).IsUpdating | Container(550).IsUpdating | Container(560).IsUpdating | Container(570).IsUpdating | Container(580).IsUpdating | Container(590).IsUpdating | 
 			Container(610).IsUpdating | Container(620).IsUpdating | Container(630).IsUpdating | Container(640).IsUpdating | Container(650).IsUpdating | Container(660).IsUpdating | Container(670).IsUpdating | Container(680).IsUpdating | Container(690).IsUpdating | Container(700).IsUpdating] + !String.IsEmpty(Skin.String(CustomSearchTerm))] | Skin.HasSetting(EnableCustomBingieSearch) + [[Container(5041).IsUpdating | Container(5042).IsUpdating | Container(5043).IsUpdating | Container(5044).IsUpdating | Container(5045).IsUpdating | Container(5046).IsUpdating | Container(5047).IsUpdating | Container(5048).IsUpdating | 
 			Container(5049).IsUpdating | Container(5050).IsUpdating | Container(5051).IsUpdating | Container(5052).IsUpdating | Container(5053).IsUpdating | Container(5054).IsUpdating | Container(5055).IsUpdating | Container(5056).IsUpdating | Container(5057).IsUpdating | Container(5058).IsUpdating | Container(5059).IsUpdating | Container(5060).IsUpdating] + !String.IsEmpty(Skin.String(CustomSearchTerm))] | !String.IsEmpty(Window.Property(SearchPosterAnimation)) + !Skin.HasSetting(EnableCustomBingieSearch) + [Container(500).IsUpdating + Control.IsVisible(500)]">Conditional</animation>

@@ -2431,7 +2431,7 @@ msgid "for You"
 msgstr ""
 
 msgctxt "#31615"
-msgid "Plot & critics"
+msgid "Reviews & critics"
 msgstr ""
 
 msgctxt "#31616"

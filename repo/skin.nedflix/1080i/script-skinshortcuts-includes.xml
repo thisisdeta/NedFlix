@@ -28,19 +28,15 @@
 			<property name="labelID">10000</property>
 			<property name="defaultID">10000</property>
 			<property name="widget">Addon</property>
-			<property name="widgetTarget">videos</property>
-			<property name="widgetType">mixed</property>
-			<property name="widgetPath">plugin://plugin.video.fenlight/?name=In+Progress&amp;iconImage=https%3A%2F%2Fi.imgur.com%2FD0nCsqI.png&amp;mode=build_movie_list&amp;action=in_progress_movies&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</property>
 			<property name="widgetName">Continue Watching Films</property>
+			<property name="widgetType">mixed</property>
+			<property name="widgetTarget">videos</property>
+			<property name="widgetPath">plugin://plugin.video.fenlight/?name=In+Progress&amp;iconImage=https%3A%2F%2Fi.imgur.com%2FD0nCsqI.png&amp;mode=build_movie_list&amp;action=in_progress_movies&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</property>
 			<property name="widget.1">Addon</property>
 			<property name="widgetName.1">Continue Watching TV</property>
 			<property name="widgetType.1">videos</property>
 			<property name="widgetTarget.1">videos</property>
 			<property name="widgetPath.1">plugin://plugin.video.fenlight/?name=In+Progress&amp;action=in_progress_tvshows&amp;iconImage=https%3A%2F%2Fi.imgur.com%2FBfGbQXx.png&amp;mode=build_tvshow_list&amp;reload=$INFO[Window(Home).Property(widgetreload-episodes)]</property>
-			<property name="widgetSortBy.1.name">None</property>
-			<property name="widgetSortBy.1Name">None</property>
-			<property name="widgetSortOrder.1.name">ascending</property>
-			<property name="widgetSortOrder.1Name">descending</property>
 			<property name="widget.2">Addon</property>
 			<property name="widgetName.2">Next Episodes</property>
 			<property name="widgetType.2">episodes</property>
@@ -56,31 +52,11 @@
 			<property name="widgetType.4">movies</property>
 			<property name="widgetTarget.4">videos</property>
 			<property name="widgetPath.4">plugin://plugin.video.fenlight/?mode=build_movie_list&amp;action=trakt_watchlist&amp;category_name=Movies+Watchlist&amp;iconImage=https%3A%2F%2Fi.imgur.com%2FsGq3ifV.png&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</property>
-			<property name="widgetName.name">Continue Watching Films</property>
-			<property name="widgetNameName">Continue Watching Films</property>
-			<property name="widgetName.1.name">Continue Watching TV</property>
-			<property name="widgetName.1Name">Continue Watching TV</property>
-			<property name="widgetName.2.name">Next Episodes</property>
-			<property name="widgetName.2Name">Next Episodes</property>
-			<property name="widgetName.3.name">In Progress Episodes</property>
-			<property name="widgetName.3Name">In Progress Episodes</property>
-			<property name="widgetName.4.name">Film Watchlist</property>
-			<property name="widgetName.4Name">Film Watchlist</property>
 			<property name="widget.5">Addon</property>
 			<property name="widgetName.5">TV Watchlist</property>
 			<property name="widgetType.5">videos</property>
 			<property name="widgetTarget.5">videos</property>
 			<property name="widgetPath.5">plugin://plugin.video.fenlight/?mode=build_tvshow_list&amp;action=trakt_watchlist&amp;category_name=TV+Shows+Watchlist&amp;iconImage=https%3A%2F%2Fi.imgur.com%2FsGq3ifV.png&amp;reload=$INFO[Window(Home).Property(widgetreload-episodes)]</property>
-			<property name="widgetName.5.name">TV Watchlist</property>
-			<property name="widgetName.5Name">TV Watchlist</property>
-			<property name="widgetSortBy.name">None</property>
-			<property name="widgetSortByName">None</property>
-			<property name="widgetSortOrder.name">ascending</property>
-			<property name="widgetSortOrderName">descending</property>
-			<property name="hub.widgetName.1" />
-			<property name="hub.widgetName.2" />
-			<property name="hub.widgetName.3" />
-			<property name="hub.widgetName.4" />
 			<onclick>ActivateWindow(home,return)</onclick>
 			<property name="path">ActivateWindow(home,return)</property>
 			<property name="list">home</property>
@@ -94,7 +70,7 @@
 			</item>
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
-			<label>$LOCALIZE[31625]</label>
+			<label>New &amp; Popular</label>
 			<label2>New &amp; Popular</label2>
 			<icon>shortcuts/new.png</icon>
 			<thumb />
@@ -157,9 +133,6 @@
 			<thumb>special://profile/addon_data/skin.bingie.fen.light.mod/custom_images/CustomBackgroundSetting20250508172629.png</thumb>
 			<property name="labelID">animation</property>
 			<property name="defaultID">31252</property>
-			<property name="translatedPath">ActivateWindow(1113,return)</property>
-			<property name="thumb.name">Custom single image</property>
-			<property name="thumbName">Custom single image</property>
 			<onclick>ActivateWindow(1113,return)</onclick>
 			<property name="path">ActivateWindow(1113,return)</property>
 			<property name="list">1113</property>
@@ -179,9 +152,6 @@
 			<thumb>special://profile/addon_data/skin.bingie.fen.light.mod/custom_images/CustomBackgroundSetting20250508172639.png</thumb>
 			<property name="labelID">wrestling</property>
 			<property name="defaultID">music</property>
-			<property name="translatedPath">ActivateWindow(1120,return)</property>
-			<property name="thumb.name">Custom single image</property>
-			<property name="thumbName">Custom single image</property>
 			<onclick>ActivateWindow(1120,return)</onclick>
 			<property name="path">ActivateWindow(1120,return)</property>
 			<property name="list">1120</property>
@@ -214,7 +184,7 @@
 			</item>
 		<item id="9">
 			<property name="id">$NUMBER[9]</property>
-			<label>$LOCALIZE[31534]</label>
+			<label>My list</label>
 			<label2>My list</label2>
 			<icon>shortcuts/mylist.png</icon>
 			<thumb />
@@ -230,7 +200,7 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">4</property>
-			<label>$LOCALIZE[31050]</label>
+			<label>All movies</label>
 			<label2>Movies</label2>
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -264,7 +234,7 @@
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
 			<property name="mainmenuid">4</property>
-			<label>$LOCALIZE[31035]</label>
+			<label>Movies in progress</label>
 			<label2>Movies</label2>
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -332,7 +302,7 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">5</property>
-			<label>$LOCALIZE[31051]</label>
+			<label>All shows</label>
 			<label2>Shows</label2>
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -349,7 +319,7 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">5</property>
-			<label>$LOCALIZE[31101]</label>
+			<label>Recently added TV shows</label>
 			<label2>Shows</label2>
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -440,7 +410,6 @@
 			<thumb>thumb</thumb>
 			<property name="labelID">script.nedflix.manager</property>
 			<property name="defaultID">script.nedflix.manager</property>
-			<property name="translatedPath">RunAddOn(script.nedflix.manager)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>RunAddOn(script.nedflix.manager)</onclick>
 			<property name="path">RunAddOn(script.nedflix.manager)</property>
@@ -475,7 +444,6 @@
 			<thumb>DefaultAddonVideo.png</thumb>
 			<property name="labelID">videoadd-ons</property>
 			<property name="defaultID">videoadd-ons</property>
-			<property name="translatedPath">ActivateWindow(10040,"addons://user/xbmc.addon.video",return)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>ActivateWindow(10040,"addons://user/xbmc.addon.video",return)</onclick>
 			<property name="path">ActivateWindow(10040,"addons://user/xbmc.addon.video",return)</property>
@@ -493,7 +461,6 @@
 			<thumb>image://https%3a%2f%2fi.imgur.com%2fMWfeBK2.jpg/</thumb>
 			<property name="labelID">plugin.video.the-loop/get_list/aHR0cHM6Ly9sb29wYWRkb24udWsvZmlsZXMvazE5L3htbHMvRmlnaHRab25lMTkvUmVwbGF5cy9XcmVzdGxpbmdSZXBsYXlzL3dyZXN0bGluZ21haW4uanNvbg==</property>
 			<property name="defaultID">plugin.video.the-loop/get_list/aHR0cHM6Ly9sb29wYWRkb24udWsvZmlsZXMvazE5L3htbHMvRmlnaHRab25lMTkvUmVwbGF5cy9XcmVzdGxpbmdSZXBsYXlzL3dyZXN0bGluZ21haW4uanNvbg==</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.the-loop/get_list/aHR0cHM6Ly9sb29wYWRkb24udWsvZmlsZXMvazE5L3htbHMvRmlnaHRab25lMTkvUmVwbGF5cy9XcmVzdGxpbmdSZXBsYXlzL3dyZXN0bGluZ21haW4uanNvbg==",return)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.the-loop/get_list/aHR0cHM6Ly9sb29wYWRkb24udWsvZmlsZXMvazE5L3htbHMvRmlnaHRab25lMTkvUmVwbGF5cy9XcmVzdGxpbmdSZXBsYXlzL3dyZXN0bGluZ21haW4uanNvbg==",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.the-loop/get_list/aHR0cHM6Ly9sb29wYWRkb24udWsvZmlsZXMvazE5L3htbHMvRmlnaHRab25lMTkvUmVwbGF5cy9XcmVzdGxpbmdSZXBsYXlzL3dyZXN0bGluZ21haW4uanNvbg==",return)</property>
@@ -505,11 +472,11 @@
 		<item id="6">
 			<property name="id">$NUMBER[6]</property>
 			<property name="mainmenuid">10</property>
-			<label>Exit Kodi</label>
+			<label>Exit Nedflix</label>
 			<label2>Favourite</label2>
 			<icon>DefaultFolder.png</icon>
 			<thumb />
-			<property name="labelID">exitkodi</property>
+			<property name="labelID">exitnedflix</property>
 			<property name="defaultID">colorred-forceclosekodi-color</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>RunAddon("plugin.close.kodi",return)</onclick>
@@ -522,7 +489,7 @@
 		<item id="7">
 			<property name="id">$NUMBER[7]</property>
 			<property name="mainmenuid">10</property>
-			<label>$LOCALIZE[31629]</label>
+			<label>Exit Bingie</label>
 			<label2>Kodi Command</label2>
 			<icon>common/exit1.png</icon>
 			<thumb />
@@ -585,12 +552,6 @@
 			<thumb />
 			<property name="labelID">none</property>
 			<property name="defaultID" />
-			<property name="layout">PosterPanelBingie</property>
-			<property name="layout.name">Poster</property>
-			<property name="layoutName">Poster</property>
-			<property name="widgetlimit">$INFO[Skin.String(WidgetsGlobalLimit)]</property>
-			<property name="widgetlimit.name">Default</property>
-			<property name="widgetlimitName">Default</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=movie&amp;name=Search+History+Movies&amp;iconImage=https%3A%2F%2Fi.imgur.com%2Fu8jgyN3.png",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=movie&amp;name=Search+History+Movies&amp;iconImage=https%3A%2F%2Fi.imgur.com%2Fu8jgyN3.png",return)</property>
 			<property name="list">plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=movie&amp;name=Search+History+Movies&amp;iconImage=https%3A%2F%2Fi.imgur.com%2Fu8jgyN3.png</property>
@@ -607,9 +568,6 @@
 			<thumb />
 			<property name="labelID">none--0</property>
 			<property name="defaultID" />
-			<property name="widgetlimit">$INFO[Skin.String(WidgetsGlobalLimit)]</property>
-			<property name="widgetlimit.name">Default</property>
-			<property name="widgetlimitName">Default</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=tvshow&amp;name=Search+History+TV+Shows&amp;iconImage=https%3A%2F%2Fi.imgur.com%2FxYTdX3O.png",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=tvshow&amp;name=Search+History+TV+Shows&amp;iconImage=https%3A%2F%2Fi.imgur.com%2FxYTdX3O.png",return)</property>
 			<property name="list">plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=tvshow&amp;name=Search+History+TV+Shows&amp;iconImage=https%3A%2F%2Fi.imgur.com%2FxYTdX3O.png</property>
@@ -640,7 +598,7 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">4</property>
-			<label>$LOCALIZE[31050]</label>
+			<label>All movies</label>
 			<label2>Movies</label2>
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -674,7 +632,7 @@
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
 			<property name="mainmenuid">4</property>
-			<label>$LOCALIZE[31035]</label>
+			<label>Movies in progress</label>
 			<label2>Movies</label2>
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -744,7 +702,7 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">4</property>
-			<label>$LOCALIZE[31050]</label>
+			<label>All movies</label>
 			<label2>Movies</label2>
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -778,7 +736,7 @@
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
 			<property name="mainmenuid">4</property>
-			<label>$LOCALIZE[31035]</label>
+			<label>Movies in progress</label>
 			<label2>Movies</label2>
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -848,7 +806,7 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">5</property>
-			<label>$LOCALIZE[31051]</label>
+			<label>All shows</label>
 			<label2>Shows</label2>
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -865,7 +823,7 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">5</property>
-			<label>$LOCALIZE[31101]</label>
+			<label>Recently added TV shows</label>
 			<label2>Shows</label2>
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -935,7 +893,7 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">5</property>
-			<label>$LOCALIZE[31051]</label>
+			<label>All shows</label>
 			<label2>Shows</label2>
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -952,7 +910,7 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">5</property>
-			<label>$LOCALIZE[31101]</label>
+			<label>Recently added TV shows</label>
 			<label2>Shows</label2>
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -1069,7 +1027,6 @@
 			<thumb>thumb</thumb>
 			<property name="labelID">script.nedflix.manager</property>
 			<property name="defaultID">script.nedflix.manager</property>
-			<property name="translatedPath">RunAddOn(script.nedflix.manager)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>RunAddOn(script.nedflix.manager)</onclick>
 			<property name="path">RunAddOn(script.nedflix.manager)</property>
@@ -1104,7 +1061,6 @@
 			<thumb>DefaultAddonVideo.png</thumb>
 			<property name="labelID">videoadd-ons</property>
 			<property name="defaultID">videoadd-ons</property>
-			<property name="translatedPath">ActivateWindow(10040,"addons://user/xbmc.addon.video",return)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>ActivateWindow(10040,"addons://user/xbmc.addon.video",return)</onclick>
 			<property name="path">ActivateWindow(10040,"addons://user/xbmc.addon.video",return)</property>
@@ -1122,7 +1078,6 @@
 			<thumb>image://https%3a%2f%2fi.imgur.com%2fMWfeBK2.jpg/</thumb>
 			<property name="labelID">plugin.video.the-loop/get_list/aHR0cHM6Ly9sb29wYWRkb24udWsvZmlsZXMvazE5L3htbHMvRmlnaHRab25lMTkvUmVwbGF5cy9XcmVzdGxpbmdSZXBsYXlzL3dyZXN0bGluZ21haW4uanNvbg==</property>
 			<property name="defaultID">plugin.video.the-loop/get_list/aHR0cHM6Ly9sb29wYWRkb24udWsvZmlsZXMvazE5L3htbHMvRmlnaHRab25lMTkvUmVwbGF5cy9XcmVzdGxpbmdSZXBsYXlzL3dyZXN0bGluZ21haW4uanNvbg==</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.the-loop/get_list/aHR0cHM6Ly9sb29wYWRkb24udWsvZmlsZXMvazE5L3htbHMvRmlnaHRab25lMTkvUmVwbGF5cy9XcmVzdGxpbmdSZXBsYXlzL3dyZXN0bGluZ21haW4uanNvbg==",return)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.the-loop/get_list/aHR0cHM6Ly9sb29wYWRkb24udWsvZmlsZXMvazE5L3htbHMvRmlnaHRab25lMTkvUmVwbGF5cy9XcmVzdGxpbmdSZXBsYXlzL3dyZXN0bGluZ21haW4uanNvbg==",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.the-loop/get_list/aHR0cHM6Ly9sb29wYWRkb24udWsvZmlsZXMvazE5L3htbHMvRmlnaHRab25lMTkvUmVwbGF5cy9XcmVzdGxpbmdSZXBsYXlzL3dyZXN0bGluZ21haW4uanNvbg==",return)</property>
@@ -1134,11 +1089,11 @@
 		<item id="6">
 			<property name="id">$NUMBER[6]</property>
 			<property name="mainmenuid">10</property>
-			<label>Exit Kodi</label>
+			<label>Exit Nedflix</label>
 			<label2>Favourite</label2>
 			<icon>DefaultFolder.png</icon>
 			<thumb />
-			<property name="labelID">exitkodi</property>
+			<property name="labelID">exitnedflix</property>
 			<property name="defaultID">colorred-forceclosekodi-color</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>RunAddon("plugin.close.kodi",return)</onclick>
@@ -1151,7 +1106,7 @@
 		<item id="7">
 			<property name="id">$NUMBER[7]</property>
 			<property name="mainmenuid">10</property>
-			<label>$LOCALIZE[31629]</label>
+			<label>Exit Bingie</label>
 			<label2>Kodi Command</label2>
 			<icon>common/exit1.png</icon>
 			<thumb />
@@ -1233,7 +1188,6 @@
 			<thumb>thumb</thumb>
 			<property name="labelID">script.nedflix.manager</property>
 			<property name="defaultID">script.nedflix.manager</property>
-			<property name="translatedPath">RunAddOn(script.nedflix.manager)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>RunAddOn(script.nedflix.manager)</onclick>
 			<property name="path">RunAddOn(script.nedflix.manager)</property>
@@ -1268,7 +1222,6 @@
 			<thumb>DefaultAddonVideo.png</thumb>
 			<property name="labelID">videoadd-ons</property>
 			<property name="defaultID">videoadd-ons</property>
-			<property name="translatedPath">ActivateWindow(10040,"addons://user/xbmc.addon.video",return)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>ActivateWindow(10040,"addons://user/xbmc.addon.video",return)</onclick>
 			<property name="path">ActivateWindow(10040,"addons://user/xbmc.addon.video",return)</property>
@@ -1286,7 +1239,6 @@
 			<thumb>image://https%3a%2f%2fi.imgur.com%2fMWfeBK2.jpg/</thumb>
 			<property name="labelID">plugin.video.the-loop/get_list/aHR0cHM6Ly9sb29wYWRkb24udWsvZmlsZXMvazE5L3htbHMvRmlnaHRab25lMTkvUmVwbGF5cy9XcmVzdGxpbmdSZXBsYXlzL3dyZXN0bGluZ21haW4uanNvbg==</property>
 			<property name="defaultID">plugin.video.the-loop/get_list/aHR0cHM6Ly9sb29wYWRkb24udWsvZmlsZXMvazE5L3htbHMvRmlnaHRab25lMTkvUmVwbGF5cy9XcmVzdGxpbmdSZXBsYXlzL3dyZXN0bGluZ21haW4uanNvbg==</property>
-			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.the-loop/get_list/aHR0cHM6Ly9sb29wYWRkb24udWsvZmlsZXMvazE5L3htbHMvRmlnaHRab25lMTkvUmVwbGF5cy9XcmVzdGxpbmdSZXBsYXlzL3dyZXN0bGluZ21haW4uanNvbg==",return)</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.the-loop/get_list/aHR0cHM6Ly9sb29wYWRkb24udWsvZmlsZXMvazE5L3htbHMvRmlnaHRab25lMTkvUmVwbGF5cy9XcmVzdGxpbmdSZXBsYXlzL3dyZXN0bGluZ21haW4uanNvbg==",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.the-loop/get_list/aHR0cHM6Ly9sb29wYWRkb24udWsvZmlsZXMvazE5L3htbHMvRmlnaHRab25lMTkvUmVwbGF5cy9XcmVzdGxpbmdSZXBsYXlzL3dyZXN0bGluZ21haW4uanNvbg==",return)</property>
@@ -1298,11 +1250,11 @@
 		<item id="6">
 			<property name="id">$NUMBER[6]</property>
 			<property name="mainmenuid">10</property>
-			<label>Exit Kodi</label>
+			<label>Exit Nedflix</label>
 			<label2>Favourite</label2>
 			<icon>DefaultFolder.png</icon>
 			<thumb />
-			<property name="labelID">exitkodi</property>
+			<property name="labelID">exitnedflix</property>
 			<property name="defaultID">colorred-forceclosekodi-color</property>
 			<onclick condition="Window.IsActive(DialogButtonMenu.xml)">Close</onclick>
 			<onclick>RunAddon("plugin.close.kodi",return)</onclick>
@@ -1315,7 +1267,7 @@
 		<item id="7">
 			<property name="id">$NUMBER[7]</property>
 			<property name="mainmenuid">10</property>
-			<label>$LOCALIZE[31629]</label>
+			<label>Exit Bingie</label>
 			<label2>Kodi Command</label2>
 			<icon>common/exit1.png</icon>
 			<thumb />
@@ -1380,12 +1332,6 @@
 			<thumb />
 			<property name="labelID">none</property>
 			<property name="defaultID" />
-			<property name="layout">PosterPanelBingie</property>
-			<property name="layout.name">Poster</property>
-			<property name="layoutName">Poster</property>
-			<property name="widgetlimit">$INFO[Skin.String(WidgetsGlobalLimit)]</property>
-			<property name="widgetlimit.name">Default</property>
-			<property name="widgetlimitName">Default</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=movie&amp;name=Search+History+Movies&amp;iconImage=https%3A%2F%2Fi.imgur.com%2Fu8jgyN3.png",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=movie&amp;name=Search+History+Movies&amp;iconImage=https%3A%2F%2Fi.imgur.com%2Fu8jgyN3.png",return)</property>
 			<property name="list">plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=movie&amp;name=Search+History+Movies&amp;iconImage=https%3A%2F%2Fi.imgur.com%2Fu8jgyN3.png</property>
@@ -1402,9 +1348,6 @@
 			<thumb />
 			<property name="labelID">none--0</property>
 			<property name="defaultID" />
-			<property name="widgetlimit">$INFO[Skin.String(WidgetsGlobalLimit)]</property>
-			<property name="widgetlimit.name">Default</property>
-			<property name="widgetlimitName">Default</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=tvshow&amp;name=Search+History+TV+Shows&amp;iconImage=https%3A%2F%2Fi.imgur.com%2FxYTdX3O.png",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=tvshow&amp;name=Search+History+TV+Shows&amp;iconImage=https%3A%2F%2Fi.imgur.com%2FxYTdX3O.png",return)</property>
 			<property name="list">plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=tvshow&amp;name=Search+History+TV+Shows&amp;iconImage=https%3A%2F%2Fi.imgur.com%2FxYTdX3O.png</property>
@@ -1423,12 +1366,6 @@
 			<thumb />
 			<property name="labelID">none</property>
 			<property name="defaultID" />
-			<property name="layout">PosterPanelBingie</property>
-			<property name="layout.name">Poster</property>
-			<property name="layoutName">Poster</property>
-			<property name="widgetlimit">$INFO[Skin.String(WidgetsGlobalLimit)]</property>
-			<property name="widgetlimit.name">Default</property>
-			<property name="widgetlimitName">Default</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=movie&amp;name=Search+History+Movies&amp;iconImage=https%3A%2F%2Fi.imgur.com%2Fu8jgyN3.png",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=movie&amp;name=Search+History+Movies&amp;iconImage=https%3A%2F%2Fi.imgur.com%2Fu8jgyN3.png",return)</property>
 			<property name="list">plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=movie&amp;name=Search+History+Movies&amp;iconImage=https%3A%2F%2Fi.imgur.com%2Fu8jgyN3.png</property>
@@ -1445,9 +1382,6 @@
 			<thumb />
 			<property name="labelID">none--0</property>
 			<property name="defaultID" />
-			<property name="widgetlimit">$INFO[Skin.String(WidgetsGlobalLimit)]</property>
-			<property name="widgetlimit.name">Default</property>
-			<property name="widgetlimitName">Default</property>
 			<onclick>ActivateWindow(Videos,"plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=tvshow&amp;name=Search+History+TV+Shows&amp;iconImage=https%3A%2F%2Fi.imgur.com%2FxYTdX3O.png",return)</onclick>
 			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=tvshow&amp;name=Search+History+TV+Shows&amp;iconImage=https%3A%2F%2Fi.imgur.com%2FxYTdX3O.png",return)</property>
 			<property name="list">plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=tvshow&amp;name=Search+History+TV+Shows&amp;iconImage=https%3A%2F%2Fi.imgur.com%2FxYTdX3O.png</property>
@@ -1465,7 +1399,7 @@
 			<param name="groupid" value="7541" />
 			<param name="path" value="plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=movie&amp;name=Search+History+Movies&amp;iconImage=https%3A%2F%2Fi.imgur.com%2Fu8jgyN3.png" />
 			<param name="label" value="&lt;None&gt;" />
-			<param name="limit" value="$INFO[Skin.String(WidgetsGlobalLimit)]" />
+			<param name="limit" value="20" />
 			<param name="layout" value="PosterPanelBingie" />
 			<param name="layoutwidth" value="297" />
 			<param name="layoutheight" value="417" />
@@ -1477,7 +1411,7 @@
 			<param name="groupid" value="7542" />
 			<param name="path" value="plugin://plugin.video.fenlight/?mode=navigator.search_history&amp;action=tvshow&amp;name=Search+History+TV+Shows&amp;iconImage=https%3A%2F%2Fi.imgur.com%2FxYTdX3O.png" />
 			<param name="label" value="&lt;None&gt;" />
-			<param name="limit" value="$INFO[Skin.String(WidgetsGlobalLimit)]" />
+			<param name="limit" value="20" />
 			<param name="layout" value="PosterPanelBingie" />
 			<param name="layoutwidth" value="297" />
 			<param name="layoutheight" value="417" />

@@ -1289,36 +1289,36 @@
 				<right></right>
 				<usecontrolcoords>true</usecontrolcoords>
 				
-				<!--Metacritic Color logo VD-->
+				<!--imdb logo Color VD-->
 				<control type="image">
+                <visible>!String.IsEmpty(Control.GetLabel(2777120))</visible>
                 <visible>!Skin.HasSetting(PreferWhiteFooter)</visible>
-				<visible>!String.IsEmpty(Control.GetLabel(2777124))</visible>
-				<visible>Skin.HasSetting(ratings_Metacritic)</visible>
-                <width>42</width>
+				<visible>Skin.HasSetting(ratings_IMDB)</visible>
+				<width>78</width>
                 <height>42</height>
 				<bottom>20</bottom>
                 <aspectratio>keep</aspectratio>
                 <fadetime>300</fadetime>
-                <texture background="true">bingie/ratings/metacritic.png</texture>
+                <texture background="true">bingie/ratings/imdb.png</texture>
 				</control>	
 				
-				<!--Metacritic White logo VD-->
+				<!--imdb logo White VD -->
 				<control type="image">
-                <visible>!String.IsEmpty(Control.GetLabel(2777124))</visible>
+                <visible>!String.IsEmpty(Control.GetLabel(2777120))</visible>
                 <visible>Skin.HasSetting(PreferWhiteFooter)</visible>
-				<visible>Skin.HasSetting(ratings_Metacritic)</visible>
-				<width>42</width>
-                <height>42</height>
+				<visible>Skin.HasSetting(ratings_IMDB)</visible>
 				<bottom>20</bottom>
-                <aspectratio>keep</aspectratio>
+                <width>78</width>
+                <height>42</height>
+				<aspectratio>keep</aspectratio>
                 <fadetime>300</fadetime>
-                <texture background="true">bingie/ratings/metacriticwhite.png</texture>
+                <texture background="true">bingie/ratings/imdbwhite.png</texture>
 				</control>	
 				
-				<!-- Metacritic VD label -->
-				<control type="label" id="2777124">
-				<visible>!String.IsEmpty(Container(99950).ListItem.Property(Metacritic_Rating))</visible>
-				<visible>Skin.HasSetting(ratings_Metacritic)</visible>
+				<!-- IMDB label VD -->
+				<control type="label" id="2777120">
+				<visible>!String.IsEmpty(Container(99950).ListItem.Property(IMDb_Rating))</visible>
+				<visible>Skin.HasSetting(ratings_IMDB)</visible>
                 <posy>37</posy>
 				<width>auto</width>
 				<height></height>
@@ -1326,8 +1326,8 @@
                 <font>footer</font>
                 <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
-                <label>$INFO[Container(99950).ListItem.Property(Metacritic_Rating),,%  ]</label>
-				</control>
+                <label>$INFO[Container(99950).ListItem.Property(IMDb_Rating),,]$INFO[Container(99950).ListItem.Property(IMDb_Votes), (, $LOCALIZE[205])  ,,]</label>
+				</control>				
 				
 				<!--Trakt Color logo VD-->
 				<control type="image">
@@ -1568,38 +1568,38 @@
                 <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
                 <label>$INFO[Container(99950).ListItem.Property(RottenTomatoes_UserMeter),,%  ]</label>
-				</control>			
-				
-				<!--imdb logo Color VD-->
+				</control>
+
+				<!--Metacritic Color logo VD-->
 				<control type="image">
-                <visible>!String.IsEmpty(Control.GetLabel(2777120))</visible>
                 <visible>!Skin.HasSetting(PreferWhiteFooter)</visible>
-				<visible>Skin.HasSetting(ratings_IMDB)</visible>
-				<width>78</width>
+				<visible>!String.IsEmpty(Control.GetLabel(2777124))</visible>
+				<visible>Skin.HasSetting(ratings_Metacritic)</visible>
+                <width>42</width>
                 <height>42</height>
 				<bottom>20</bottom>
                 <aspectratio>keep</aspectratio>
                 <fadetime>300</fadetime>
-                <texture background="true">bingie/ratings/imdb.png</texture>
+                <texture background="true">bingie/ratings/metacritic.png</texture>
 				</control>	
 				
-				<!--imdb logo White VD -->
+				<!--Metacritic White logo VD-->
 				<control type="image">
-                <visible>!String.IsEmpty(Control.GetLabel(2777120))</visible>
+                <visible>!String.IsEmpty(Control.GetLabel(2777124))</visible>
                 <visible>Skin.HasSetting(PreferWhiteFooter)</visible>
-				<visible>Skin.HasSetting(ratings_IMDB)</visible>
-				<bottom>20</bottom>
-                <width>78</width>
+				<visible>Skin.HasSetting(ratings_Metacritic)</visible>
+				<width>42</width>
                 <height>42</height>
-				<aspectratio>keep</aspectratio>
+				<bottom>20</bottom>
+                <aspectratio>keep</aspectratio>
                 <fadetime>300</fadetime>
-                <texture background="true">bingie/ratings/imdbwhite.png</texture>
+                <texture background="true">bingie/ratings/metacriticwhite.png</texture>
 				</control>	
 				
-				<!-- IMDB label VD -->
-				<control type="label" id="2777120">
-				<visible>!String.IsEmpty(Container(99950).ListItem.Property(IMDb_Rating))</visible>
-				<visible>Skin.HasSetting(ratings_IMDB)</visible>
+				<!-- Metacritic VD label -->
+				<control type="label" id="2777124">
+				<visible>!String.IsEmpty(Container(99950).ListItem.Property(Metacritic_Rating))</visible>
+				<visible>Skin.HasSetting(ratings_Metacritic)</visible>
                 <posy>37</posy>
 				<width>auto</width>
 				<height></height>
@@ -1607,8 +1607,10 @@
                 <font>footer</font>
                 <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
-                <label>$INFO[Container(99950).ListItem.Property(IMDb_Rating),,]$INFO[Container(99950).ListItem.Property(IMDb_Votes), (, $LOCALIZE[205])  ,,]</label>
-				</control>				
+                <label>$INFO[Container(99950).ListItem.Property(Metacritic_Rating),,%  ]</label>
+				</control>
+				
+							
 			</control>
 	</include>	
 

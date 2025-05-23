@@ -2134,7 +2134,7 @@
                 <height></height>
                 <width></width>
 				<top>-30</top>
-				<include>new_footer</include>
+		<!--	<include>new_footer</include>	 --> 
 			</control>
 		</control>
 	</include>

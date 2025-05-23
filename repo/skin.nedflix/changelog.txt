@@ -1,0 +1,9 @@
+Version 1.0.4
+
+- Changed search header text when a film or TV series is selected
+- Changed order of ratings providers on 'Reviews & Critics' page
+- Fixed ratings showing on first page of categories/genres even when disabled
+
+Version 1.0.3
+
+- Added Film/TV title and year on search results screen

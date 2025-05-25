@@ -1,3 +1,12 @@
+Version 1.0.5
+
+- TMDB helper widgets for films and TV now open with Fen Light (Woohoo!)
+- Added release year for cast and crew info
+- Added option to hide user comments on reviews & critics page
+- Increased options for number of roles to show in cast info
+- Fixed incorrectly labelled options
+- Changed some references from Bingie to Nedflix
+
 Version 1.0.4
 
 - Changed search header text when a film or TV series is selected

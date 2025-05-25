@@ -1740,11 +1740,23 @@
 								<radioposy>22</radioposy>
                                 <radiowidth>22</radiowidth>
                                 <radioheight>22</radioheight>
-								<onclick condition="!Window.IsActive(Custom_1190_TMDbHelperCast.xml)">Dialog.Close(movieinformation)</onclick>
-								<onclick condition="!String.IsEmpty(ListItem.FileNameAndPath) + !Window.IsActive(Custom_1190_TMDbHelperCast.xml)">AlarmClock(PlayMovie,PlayMedia($ESCINFO[ListItem.FileNameAndPath]),00:01,silent)</onclick>
-								<onclick condition="String.IsEmpty(ListItem.FileNameAndPath) + !Window.IsActive(Custom_1190_TMDbHelperCast.xml)">AlarmClock(PlayMovie,PlayMedia($ESCINFO[ListItem.FolderPath]),00:01,silent)</onclick>
-								<onclick condition="!ListItem.IsFolder + !String.IsEmpty(ListItem.FileNameAndPath) + Window.IsActive(Custom_1190_TMDbHelperCast.xml)">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,playmedia='$ESCINFO[ListItem.FileNameAndPath]')</onclick>
-								<onclick condition="!ListItem.IsFolder + String.IsEmpty(ListItem.FileNameAndPath) + Window.IsActive(Custom_1190_TMDbHelperCast.xml)">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,playmedia='$ESCINFO[ListItem.FolderPath]')</onclick>
+								<onclick>Dialog.Close(movieinformation)</onclick>
+
+								<!-- TMDb Helper branch: if the TMDb property is available, use the custom Fen Light URL -->
+								<onclick condition="!String.IsEmpty(ListItem.Property(tmdb_id))">
+								  RunPlugin(plugin://plugin.video.fenlight/?mode=playback.media&amp;media_type=movie&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)]&amp;autoplay=false)
+								</onclick>
+								<onclick condition="String.IsEmpty(ListItem.Property(tmdb_id)) + !String.IsEmpty(ListItem.TMDBNumber)">
+								  RunPlugin(plugin://plugin.video.fenlight/?mode=playback.media&amp;media_type=movie&amp;tmdb_id=$INFO[ListItem.TMDBNumber]&amp;autoplay=false)
+								</onclick>
+
+								<!-- Normal Fen Light branch: if neither TMDb property nor fallback exists, use normal playback -->
+								<onclick condition="String.IsEmpty(ListItem.Property(tmdb_id)) + String.IsEmpty(ListItem.TMDBNumber) + !String.IsEmpty(ListItem.FileNameAndPath)">
+								  AlarmClock(PlayMovie,PlayMedia($ESCINFO[ListItem.FileNameAndPath]),00:01,silent)
+								</onclick>
+								<onclick condition="String.IsEmpty(ListItem.Property(tmdb_id)) + String.IsEmpty(ListItem.TMDBNumber) + String.IsEmpty(ListItem.FileNameAndPath)">
+								  AlarmClock(PlayMovie,PlayMedia($ESCINFO[ListItem.FolderPath]),00:01,silent)
+								</onclick>
 							</control>							
 
                             <!-- Resume -->
@@ -1809,37 +1821,45 @@
 								<onclick condition="Control.IsVisible(1234) + String.IsEqual(ListItem.dbtype,tvshow) + Window.IsActive(Custom_1190_TMDbHelperCsst.xml)">AlarmClock(PlayMovie,PlayMedia($INFO[Container(1234).ListItemAbsolute(0).FolderPath],noresume),00:01,silent)</onclick>
                             </control>
 
-							<!--More episodes-->
-                            <control type="radiobutton" id="53">
-                                <visible>$EXP[IsTvShowDBTypeNoFallback]	| [$EXP[IsEpisodeDBTypeNoFallback] + !String.IsEmpty(ListItem.DBID)]</visible>
-                                <include>Bingie_InfoDialog_Button_Default_Defs</include>
-                                <include content="Bingie_InfoDialog_Button_Texture">
-                                    <param name="radiotexture" value="dialogs/videoinfo/info/more_episodes.png"/>
-                                </include>
-                                <label>$LOCALIZE[31229]</label>
+							<!-- More episodes -->
+							<control type="radiobutton" id="53">
+								<visible>$EXP[IsTvShowDBTypeNoFallback] | [$EXP[IsEpisodeDBTypeNoFallback] + !String.IsEmpty(ListItem.DBID)]</visible>
+								<include>Bingie_InfoDialog_Button_Default_Defs</include>
+								<include content="Bingie_InfoDialog_Button_Texture">
+									<param name="radiotexture" value="dialogs/videoinfo/info/more_episodes.png" />
+								</include>
+								<label>$LOCALIZE[31229]</label>
 								<radioposy>22</radioposy>
-                                <radioposx>18</radioposx>
-                                <radiowidth>24</radiowidth>
-                                <radioheight>24</radioheight>
-                                <onclick>SetProperty(BaseWindow,1,Home)</onclick>
+								<radioposx>18</radioposx>
+								<radiowidth>24</radiowidth>
+								<radioheight>24</radioheight>
+								<!-- UI animations / dialog close -->
+								<onclick>SetProperty(BaseWindow,1,Home)</onclick>
 								<onclick>SetProperty(FadeFanart,1,Home)</onclick>
 								<onclick>SetProperty(NoFadeOut,1,Home)</onclick>
 								<onclick>SetProperty(AnimationRight,1,Home)</onclick>
-								<onclick condition="!String.IsEmpty(Window(Home).Property(FullImage))">SetProperty(EpisodesAnimation,1,Home)</onclick>
-                                <onclick condition="!Window.IsActive(Custom_1190_TMDbHelperCast.xml)">Dialog.Close(movieinformation)</onclick>
-                                <!-- activate ALL EPISODES view -->
-                                <!-- from episode infodialog -->
-                                <onclick condition="String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEmpty(ListItem.DBID) + !String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">SetProperty(KeepTVShowID,1,Home)</onclick>
-                                <onclick condition="String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEmpty(ListItem.DBID) + !String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[Window(Home).Property(ListItem.TVShowID)]/-2/,return)</onclick>
-                                <!-- from tvshow infodialog for library content -->
-                                <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.DBID) + !Window.IsActive(Custom_1190_TMDbHelperCast.xml)">SetProperty(ListItem.TVShowID,$INFO[ListItem.DBID],Home)</onclick>
-                                <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.DBID) + !Window.IsActive(Custom_1190_TMDbHelperCast.xml)">SetProperty(KeepTVShowID,1,Home)</onclick>
-								<onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.DBID) + !Window.IsActive(Custom_1190_TMDbHelperCast.xml)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/-2/,return)</onclick>
-								<onclick condition="ListItem.IsFolder + !Window.IsVisible(MyVideoNav.xml) + !String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBType,tvshow) + Window.IsActive(Custom_1190_TMDbHelperCast.xml)">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,call_path=$INFO[ListItem.DBID,videodb://tvshows/titles/,/-2/return])</onclick>
-                                <!-- from tvshow infodialog for non-library content -->
-								<onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + String.IsEmpty(ListItem.DBID) + !Window.IsActive(Custom_1190_TMDbHelperCast.xml)">ActivateWindow(Videos,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
-								<onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + String.IsEmpty(ListItem.DBID) + Window.IsActive(Custom_1190_TMDbHelperCast.xml)">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,call_path=$INFO[ListItem.FolderPath])</onclick>
-							</control>						
+								<onclick condition="!String.IsEmpty(Window(Home).Property(FullImage))">
+									SetProperty(EpisodesAnimation,1,Home)
+								</onclick>
+								<onclick>Dialog.Close(movieinformation)</onclick>
+
+								<!-- Fen Light using tmdb_id -->
+								<onclick condition="!String.IsEmpty(ListItem.Property(tmdb_id))">
+								ActivateWindow(Videos,plugin://plugin.video.fenlight/?mode=build_season_list&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)],return)
+								</onclick>
+
+								<!-- TMDbHelper library content using DBID -->
+								<onclick condition="String.IsEmpty(ListItem.Property(tmdb_id)) + !String.IsEmpty(ListItem.DBID)">
+									ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/-2/,return)
+								</onclick>
+
+								<!-- Fen Light fallback using FolderPath -->
+								<onclick condition="String.IsEmpty(ListItem.Property(tmdb_id)) + String.IsEmpty(ListItem.DBID)">
+									ActivateWindow(Videos,$ESCINFO[ListItem.FolderPath],return)
+								</onclick>
+
+							</control>
+						
 
 							<!-- Trailer -->
                             <control type="radiobutton" id="54">
@@ -1940,7 +1960,7 @@
                                 <include content="Bingie_InfoDialog_Button_Texture">
                                     <param name="radiotexture" value="dialogs/videoinfo/info/plus.png"/>
                                 </include>
-                                <label>[CAPITALIZE]$LOCALIZE[31155][/CAPITALIZE]</label>
+                                <label>[CAPITALIZE]$LOCALIZE[31534][/CAPITALIZE]</label>
                                 <radioposx>19</radioposx>
 								<radioposy>22</radioposy>
                                 <radiowidth>22</radiowidth>
@@ -2784,7 +2804,7 @@
 						<control type="group">
 							<animation effect="fade" start="0" end="100" time="400">Visible</animation>
 								<control type="label">	
-									<visible>Container(1050).IsUpdating + String.IsEqual(Window.Property(AdditionalInfo),plot)</visible>								
+									<visible>Container(1050).IsUpdating + String.IsEqual(Window.Property(AdditionalInfo),plot) + Skin.HasSetting(ShowUserComments)</visible>								
 									<bottom>158</bottom>
 									<height>120</height>
 									<align>center</align>
@@ -2794,6 +2814,7 @@
 									<scroll>true</scroll>
 								</control>
 								<control type="label">
+									<visible>Skin.HasSetting(ShowUserComments)</visible>
 									<animation effect="fade" start="0" end="100" time="400" delay="300">Visible</animation>
 									<bottom>158</bottom>
 									<height>120</height>
@@ -2863,6 +2884,7 @@
 									</control>
                                 </control>
                             </focusedlayout>
+							<visible>Skin.HasSetting(ShowUserComments)</visible>
 							<content>$INFO[Window.Property(Path.Reviews)]</content>
 						</control>
                     </control>
@@ -3381,7 +3403,7 @@
 						<control type="label">
 							  <top>105</top>
 							  <left>6</left>
-							  <label>$VAR[InfoDialogMainFallbackTitle]</label>
+							  <label>$VAR[InfoDialogMainFallbackTitle] ($INFO[Container($PARAM[id]).ListItem.Year])</label>
 							  <height>30</height>
 							  <width>auto</width>
 							  <align>left</align>

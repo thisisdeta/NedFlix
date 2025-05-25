@@ -180,10 +180,13 @@
     <setting id="View_DisplayInfo" value="small_delayed" label="$LOCALIZE[31658]" condition="" icon="" description=""/>
 	
 	<!-- number of roles in cast info -->
-    <setting id="cast_number" value="20" label="20 [LOWERCASE]$LOCALIZE[29994][/LOWERCASE]" condition="" icon="" description=""/>
-    <setting id="cast_number" value="30" label="30 [LOWERCASE]$LOCALIZE[29994][/LOWERCASE]" condition="" icon="" description=""/>
-    <setting id="cast_number" value="40" label="40 [LOWERCASE]$LOCALIZE[29994][/LOWERCASE]" condition="" icon="" description=""/>
+    <setting id="cast_number" value="20" label="20 [LOWERCASE]$LOCALIZE[29994][/LOWERCASE]" condition="" icon="" description=""/>    
     <setting id="cast_number" value="50" label="50 [LOWERCASE]$LOCALIZE[29994][/LOWERCASE]" condition="" icon="" description=""/>
+	<setting id="cast_number" value="100" label="100 [LOWERCASE]$LOCALIZE[29994][/LOWERCASE]" condition="" icon="" description=""/>
+	<setting id="cast_number" value="200" label="200 [LOWERCASE]$LOCALIZE[29994][/LOWERCASE]" condition="" icon="" description=""/>
+	<setting id="cast_number" value="300" label="300 [LOWERCASE]$LOCALIZE[29994][/LOWERCASE]" condition="" icon="" description=""/>
+	<setting id="cast_number" value="500" label="500 [LOWERCASE]$LOCALIZE[29994][/LOWERCASE]" condition="" icon="" description=""/>
+	<setting id="cast_number" value="1000" label="1000 [LOWERCASE]$LOCALIZE[29994][/LOWERCASE]" condition="" icon="" description=""/>
 	
 	<!-- splash screen -->
 	<setting id="splash_screen" value="none" label="$LOCALIZE[231]" condition="" icon="" description=""/>

@@ -638,7 +638,7 @@ msgid "Startup animations"
 msgstr ""
 
 msgctxt "#31155"
-msgid "Add/remove watchlist"
+msgid "Trakt manager"
 msgstr ""
 
 msgctxt "#31156"
@@ -706,7 +706,7 @@ msgid "One of the main advantages of using the skinshortcuts-script is that your
 msgstr ""
 
 msgctxt "#31172"
-msgid "Who's watching Bingie?"
+msgid "Who's watching Nedflix?"
 msgstr ""
 
 msgctxt "#31173"
@@ -1118,7 +1118,7 @@ msgid "Reset the skin to default settings"
 msgstr ""
 
 msgctxt "#31275"
-msgid "Hide Bingie logo and hub names"
+msgid "Hide Nedflix/Bingie logo and hub names"
 msgstr ""
 
 msgctxt "#31276"
@@ -1603,7 +1603,7 @@ msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR][CR]Setup and calibrate displays · C
 msgstr ""
 
 msgctxt "#31407"
-msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR][CR]Setup Bingie skin · Add and remove home menu items · Change skin backgrounds"
+msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR][CR]Setup Nedflix skin · Add and remove home menu items · Change skin backgrounds"
 msgstr ""
 
 msgctxt "#31408"
@@ -2111,7 +2111,7 @@ msgid "Trailers settings"
 msgstr ""
 
 msgctxt "#31534"
-msgid "My list"
+msgid "Add/remove watchlist"
 msgstr ""
 
 msgctxt "#31535"
@@ -2695,9 +2695,15 @@ msgid "Show release year after title of film or series"
 msgstr ""
 
 msgctxt "#31905"
-msgid "Show Bingie logo instead of hub names"
+msgid "Show Nedflix/Bingie logo instead of hub names"
 msgstr ""
 
 msgctxt "#31906"
 msgid "Show autocomplete results"
 msgstr ""
+
+msgctxt "#31907"
+msgid "Show user comments in reviews & critics"
+msgstr ""
+
+

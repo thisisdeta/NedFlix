@@ -890,6 +890,13 @@
             <param name="label" value="$LOCALIZE[31595]" />
             <param name="action" value="RunScript(script.bingie.toolbox,action=setskinsetting,setting=videoinfo_details,header=$LOCALIZE[31595])" />
         </include>
+		<!-- Show user comments in reviews & critics -->
+		<control type="radiobutton" id="6962">
+            <include>SkinSettings_Button</include>
+            <label>$LOCALIZE[31907]</label>
+            <onclick>Skin.ToggleSetting(ShowUserComments)</onclick>
+            <selected>Skin.HasSetting(ShowUserComments)</selected>			
+        </control>
 		<!-- Replace Cast and Crew List with Cast and Crew Images -->
 		<control type="radiobutton" id="2041">
             <include>SkinSettings_Button</include>

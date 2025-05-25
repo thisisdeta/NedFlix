@@ -27,12 +27,17 @@ def format_time(seconds):
         return f"{secs}s"
 
 def get_stable_key(url):
-    base_url = url.split('.m3u8')[0] + '.m3u8'
-    match = re.search(r'/video/\d+/\d+/\d+_mp4_h264_aac_fhd_1\.m3u8', base_url)
+    """
+    Extract the '/video/<id>/<id>/<name>_mp4_h264_aac_fhd_<n>.m3u8' portion
+    so that URLs differing only by the cryptic prefix map to the same key.
+    """
+    # Try to pull out the /video/... part
+    match = re.search(r'(/video/\d+/\d+/\d+_[^/]+\.m3u8)', url)
     if match:
-        return match.group(0)
-    else:
-        return base_url
+        return match.group(1)
+    # Fallback: just trim any query‐like bits after .m3u8
+    return url.split('.m3u8')[0] + '.m3u8'
+
 
 def is_dailymotion_url(url):
     return "dailymotion.com" in url or "dmcdn.net" in url
@@ -67,14 +72,14 @@ class ResumeManager:
 
 def main():
     resume_manager = ResumeManager()
-    player = xbmc.Player()
-    monitor = xbmc.Monitor()
+    player         = xbmc.Player()
+    monitor        = xbmc.Monitor()
 
-    last_key = None
-    prompted = False
+    last_key       = None
+    prompted       = False
 
-    last_pos = None
-    pause_saved = False
+    last_pos       = None
+    pause_saved    = False
     last_save_time = 0
 
     while not monitor.abortRequested():
@@ -88,22 +93,25 @@ def main():
 
             # New video started?
             if stable_key != last_key:
-                last_key = stable_key
-                prompted = False
-                last_pos = None
-                pause_saved = False
+                last_key       = stable_key
+                prompted       = False
+                last_pos       = None
+                pause_saved    = False
                 last_save_time = 0
 
-            # Prompt once per video
+            # Prompt resume once, pausing/unpausing around the dialog
             if not prompted:
                 resume_pos = resume_manager.get_resume_point(stable_key)
                 if resume_pos > 0:
                     formatted_time = format_time(resume_pos)
+                    player.pause()  # pause playback
                     dialog = xbmcgui.Dialog()
                     choice = dialog.select(
                         "Resume Playback",
                         [f"Resume from {formatted_time}", "Don't resume"]
                     )
+                    player.pause()  # unpause playback
+
                     if choice == 0:
                         xbmc.log(f"Resuming {current_path} at {resume_pos}s", xbmc.LOGINFO)
                         player.seekTime(resume_pos)
@@ -113,18 +121,17 @@ def main():
 
             # Track current position and total duration
             pos   = player.getTime()
-            total = player.getTotalTime() or 0  # safeguard if total unknown
+            total = player.getTotalTime() or 0
 
             if last_pos is None:
                 last_pos = pos
-
             else:
                 # ——— playback advancing ———
                 if pos > last_pos:
                     now = time.time()
-                    # every 5s when playing and past 60s
+                    # every 5 s when playing and past 60 s
                     if now - last_save_time >= 5 and pos >= 60:
-                        # if past 99% of total, clear; else save pos–4
+                        # if ≥99% watched, clear; else save pos–4 s
                         if total > 0 and pos >= 0.99 * total:
                             resume_manager.set_resume_point(stable_key, 0)
                         else:
@@ -136,7 +143,7 @@ def main():
                 elif pos == last_pos and not pause_saved:
                     # save once on pause
                     if pos >= 60:
-                        if total > 0 and pos >= 0.95 * total:
+                        if total > 0 and pos >= 0.99 * total:
                             resume_manager.set_resume_point(stable_key, 0)
                         else:
                             resume_manager.set_resume_point(stable_key, max(pos - 4, 0))
@@ -146,13 +153,14 @@ def main():
 
         else:
             # reset state when nothing playing
-            last_key = None
-            prompted = False
-            last_pos = None
-            pause_saved = False
+            last_key       = None
+            prompted       = False
+            last_pos       = None
+            pause_saved    = False
             last_save_time = 0
 
         time.sleep(5)
+
 
 
 

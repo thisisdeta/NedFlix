@@ -17,6 +17,16 @@
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
+</addon><addon id="script.local-resume" version="1.0.0" name="Local Resume" provider-name="ChatGPDeta">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0" />
+    </requires>
+    <extension point="xbmc.service" library="service.py">
+        <provides>video</provides>
+		<assets>
+			<icon>icon.png</icon>						
+		</assets>
+    </extension>
 </addon><addon id="script.nedflix.manager" version="1.0.2" name="Nedflix Manager" provider-name="ChatGPDeta">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />

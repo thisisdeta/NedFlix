@@ -1,3 +1,5 @@
 Version 1.0.1
 
-- 
+- No longer constantly writes to resume file when video is paused
+- Resume point is now 4 seconds before the latest saved resume data
+- Files are now considered fully watched at 99% of the running time

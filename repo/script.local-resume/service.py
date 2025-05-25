@@ -69,49 +69,93 @@ def main():
     resume_manager = ResumeManager()
     player = xbmc.Player()
     monitor = xbmc.Monitor()
+
     last_key = None
     prompted = False
+
+    last_pos = None
+    pause_saved = False
+    last_save_time = 0
 
     while not monitor.abortRequested():
         if player.isPlayingVideo():
             current_path = player.getPlayingFile()
-
             if not is_dailymotion_url(current_path):
-                time.sleep(1)
+                time.sleep(5)
                 continue
 
             stable_key = get_stable_key(current_path)
 
+            # New video started?
             if stable_key != last_key:
                 last_key = stable_key
                 prompted = False
+                last_pos = None
+                pause_saved = False
+                last_save_time = 0
 
+            # Prompt once per video
             if not prompted:
                 resume_pos = resume_manager.get_resume_point(stable_key)
                 if resume_pos > 0:
-                    player.pause()  # Pause playback before showing dialog
                     formatted_time = format_time(resume_pos)
                     dialog = xbmcgui.Dialog()
-                    choice = dialog.select("Resume Playback",
-                                           [f"Resume from {formatted_time}", "Nahh"])
-
+                    choice = dialog.select(
+                        "Resume Playback",
+                        [f"Resume from {formatted_time}", "Don't resume"]
+                    )
                     if choice == 0:
-                        xbmc.log(f"Resuming {current_path} at {resume_pos} seconds", xbmc.LOGINFO)
+                        xbmc.log(f"Resuming {current_path} at {resume_pos}s", xbmc.LOGINFO)
                         player.seekTime(resume_pos)
-                    elif choice == 1:
+                    else:
                         resume_manager.set_resume_point(stable_key, 0)
-                    player.pause()  # Unpause playback after dialog closes
                 prompted = True
 
-            pos = player.getTime()
-            if pos >= 60:
-                resume_manager.set_resume_point(stable_key, pos)
+            # Track current position and total duration
+            pos   = player.getTime()
+            total = player.getTotalTime() or 0  # safeguard if total unknown
+
+            if last_pos is None:
+                last_pos = pos
+
+            else:
+                # ——— playback advancing ———
+                if pos > last_pos:
+                    now = time.time()
+                    # every 5s when playing and past 60s
+                    if now - last_save_time >= 5 and pos >= 60:
+                        # if past 99% of total, clear; else save pos–4
+                        if total > 0 and pos >= 0.99 * total:
+                            resume_manager.set_resume_point(stable_key, 0)
+                        else:
+                            resume_manager.set_resume_point(stable_key, max(pos - 4, 0))
+                        last_save_time = now
+                    pause_saved = False
+
+                # ——— playback paused ———
+                elif pos == last_pos and not pause_saved:
+                    # save once on pause
+                    if pos >= 60:
+                        if total > 0 and pos >= 0.95 * total:
+                            resume_manager.set_resume_point(stable_key, 0)
+                        else:
+                            resume_manager.set_resume_point(stable_key, max(pos - 4, 0))
+                    pause_saved = True
+
+                last_pos = pos
 
         else:
+            # reset state when nothing playing
             last_key = None
             prompted = False
+            last_pos = None
+            pause_saved = False
+            last_save_time = 0
 
         time.sleep(5)
+
+
+
 
 
 if __name__ == '__main__':

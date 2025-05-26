@@ -1,3 +1,8 @@
+Version 1.0.2
+
+- Better resume logic for filenames
+- Added watched file logging
+
 Version 1.0.1
 
 - No longer constantly writes to resume file when video is paused

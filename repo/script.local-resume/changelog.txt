@@ -1,3 +1,9 @@
+Version 1.0.3
+
+- Resume pop-up loads up faster
+- Added setting for resume point saving interval
+- Added percentage watched to resume pop-up
+
 Version 1.0.2
 
 - Better resume logic for filenames

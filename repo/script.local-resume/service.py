@@ -10,12 +10,21 @@ import re
 
 # Addon setup
 ADDON = xbmcaddon.Addon(id='script.local-resume')
+LOOP_INTERVAL = float(ADDON.getSetting('loop_interval') or 2)
 PROFILE = xbmcvfs.translatePath(ADDON.getAddonInfo('profile'))
 xbmcvfs.mkdirs(PROFILE)
 
 # Files for storing data
 RESUME_FILE  = os.path.join(PROFILE, 'resume_points.json')
 WATCHED_FILE = os.path.join(PROFILE, 'watched.json')
+
+def get_loop_interval():
+    try:
+        # Read setting, fallback to 2.5 seconds, enforce minimum 0.5
+        return max(0.5, float(ADDON.getSetting('loop_interval') or 2.5))
+    except Exception as e:
+        xbmc.log(f"Error reading loop_interval setting: {e}", xbmc.LOGERROR)
+        return 2.5
 
 # ResumeManager unchanged…
 class ResumeManager:
@@ -121,16 +130,17 @@ def main():
     last_pos       = None
     pause_saved    = False
     last_save_time = 0
+    loop_interval  = get_loop_interval()
 
     while not monitor.abortRequested():
         if player.isPlayingVideo():
-            # Determine our stable key or skip if media has a year
             stable_key = get_stable_key()
             if not stable_key:
-                time.sleep(5)
+                if monitor.waitForAbort(0.5):
+                    break
                 continue
 
-            # Reset on new video
+            # New video? reset state
             if stable_key != last_key:
                 last_key       = stable_key
                 prompted       = False
@@ -138,16 +148,26 @@ def main():
                 pause_saved    = False
                 last_save_time = 0
 
-            # Prompt resume once
+            # Prompt resume
             if not prompted:
                 resume_pos = resume_manager.get_resume_point(stable_key)
                 if resume_pos > 0:
                     formatted_time = format_time(resume_pos)
+                    total_time = player.getTotalTime() or 0
+
+                    # Compute percentage only if total_time is available
+                    if total_time > 0:
+                        percentage = round((resume_pos / total_time) * 100)
+                        resume_label = f"Resume from {formatted_time} ({percentage}% watched)"
+                    else:
+                        resume_label = f"Resume from {formatted_time}"
+
+                    # Pause video and show dialog prompt
                     player.pause()
                     dialog = xbmcgui.Dialog()
                     choice = dialog.select(
-                        "Resume Playback",
-                        [f"Resume from {formatted_time}", "Don't resume"]
+                        "Resume playback?",
+                        [resume_label, "Don't resume"]
                     )
                     player.pause()
 
@@ -158,49 +178,73 @@ def main():
                         resume_manager.set_resume_point(stable_key, 0)
                 prompted = True
 
-            # Track playback position & duration
+            # Track playback
             pos   = player.getTime()
             total = player.getTotalTime() or 0
 
             if last_pos is None:
                 last_pos = pos
             else:
-                # — Playing → save every 5 s after 60 s
+                # — Playing → save every loop_interval
                 if pos > last_pos:
                     now = time.time()
-                    if now - last_save_time >= 5 and pos >= 60:
-                        # Completed ≥99%?
+                    if now - last_save_time >= loop_interval:
                         if total > 0 and pos >= 0.99 * total:
+                            # Mark watched at end
                             if not watched_manager.is_watched(stable_key):
                                 watched_manager.mark_watched(stable_key)
                             resume_manager.set_resume_point(stable_key, 0)
                         else:
-                            resume_manager.set_resume_point(stable_key, max(pos - 4, 0))
+                            # First minute: always save 0; after: save pos-4
+                            if pos <= 60:
+                                resume_manager.set_resume_point(stable_key, 0)
+                            else:
+                                resume_manager.set_resume_point(stable_key, max(pos - 4, 0))
                         last_save_time = now
                     pause_saved = False
 
                 # — Paused → save once on pause
                 elif pos == last_pos and not pause_saved:
-                    if pos >= 60:
+                    now = time.time()
+                    if now - last_save_time >= 0:  # force immediate save on pause
                         if total > 0 and pos >= 0.99 * total:
                             if not watched_manager.is_watched(stable_key):
                                 watched_manager.mark_watched(stable_key)
                             resume_manager.set_resume_point(stable_key, 0)
                         else:
-                            resume_manager.set_resume_point(stable_key, max(pos - 4, 0))
+                            if pos <= 60:
+                                resume_manager.set_resume_point(stable_key, 0)
+                            else:
+                                resume_manager.set_resume_point(stable_key, max(pos - 4, 0))
+                        last_save_time = now
                     pause_saved = True
 
                 last_pos = pos
 
+            # Responsive loop when playing (dialog, pos-checks)
+            if monitor.waitForAbort(0.5):
+                break
+
         else:
-            # Reset when playback stops
+            # Reset when stopped
             last_key       = None
             prompted       = False
             last_pos       = None
             pause_saved    = False
             last_save_time = 0
 
-        time.sleep(5)
+            # Use configurable interval when idle
+            if monitor.waitForAbort(loop_interval):
+                break
+
+        # Reload interval if changed
+        new_interval = get_loop_interval()
+        if new_interval != loop_interval:
+            xbmc.log(f"Loop interval changed from {loop_interval} to {new_interval}", xbmc.LOGINFO)
+            loop_interval = new_interval
+
+
+
 
 if __name__ == '__main__':
     main()

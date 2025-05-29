@@ -148,11 +148,21 @@
 	<variable name="Path_FromYear">
         <value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.Year)">plugin://plugin.video.themoviedb.helper?info=discover&amp;type=movie&amp;primary_release_year=$INFO[ListItem.Year]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
         <value condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEmpty(ListItem.Year)">plugin://plugin.video.themoviedb.helper?info=discover&amp;type=tv&amp;first_air_date_year=$INFO[ListItem.Year]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
-    </variable>
+    </variable>	
 	
-	<variable name="Path_Similar">
+	<variable name="Path_Similar_IMDB_Fen">
+		<value condition="String.StartsWith(ListItem.DBTYPE,tvshow)">plugin://plugin.video.fenlight/?mode=build_tvshow_list&amp;action=imdb_more_like_this&amp;key_id=$INFO[ListItem.IMDBNumber]</value>
+		<value>plugin://plugin.video.fenlight/?mode=build_movie_list&amp;action=imdb_more_like_this&amp;key_id=$INFO[ListItem.IMDBNumber]</value>
+	</variable>
+	
+	<variable name="Path_Similar_TMDB_Fen">
+		<value condition="String.StartsWith(ListItem.DBTYPE,tvshow)">plugin://plugin.video.fenlight/?mode=build_tvshow_list&amp;action=tmdb_tv_recommendations&amp;key_id=$INFO[ListItem.Property(tmdb_id)]</value>
+		<value>plugin://plugin.video.fenlight/?mode=build_movie_list&amp;action=tmdb_movies_recommendations&amp;key_id=$INFO[ListItem.Property(tmdb_id)]</value>
+	</variable>
+	
+	<variable name="Path_Similar_TMDB_Default">
         <value>plugin://plugin.video.themoviedb.helper?info=recommendations&amp;nextpage=false$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]</value>
-    </variable>
+    </variable>	
 	
 	<variable name="Path_Reviews">
         <value>plugin://plugin.video.themoviedb.helper?info=trakt_comments$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]</value>

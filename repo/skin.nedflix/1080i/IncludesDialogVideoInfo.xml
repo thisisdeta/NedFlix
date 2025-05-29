@@ -1740,7 +1740,7 @@
 								<radioposy>22</radioposy>
                                 <radiowidth>22</radiowidth>
                                 <radioheight>22</radioheight>
-								<onclick>Dialog.Close(movieinformation)</onclick>
+								<onclick></onclick>
 
 								<!-- TMDb Helper branch: if the TMDb property is available, use the custom Fen Light URL -->
 								<onclick condition="!String.IsEmpty(ListItem.Property(tmdb_id))">
@@ -2051,7 +2051,7 @@
 								<radioposy>22</radioposy>
                                 <radiowidth>24</radiowidth>
                                 <radioheight>24</radioheight>
-								<onfocus>SetProperty(Path.Similar,"$VAR[Path_Similar]")</onfocus>
+								<onfocus>SetProperty(Path.Similar,"$VAR[Path_Similar_IMDB_Fen]")</onfocus>
                                 <onclick>SetProperty(AdditionalInfo, similar)</onclick>
                                 <onclick>SetFocus(352)</onclick>
                             </control>	

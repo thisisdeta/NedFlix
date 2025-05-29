@@ -1231,20 +1231,7 @@
                     <textcolor>$INFO[Skin.String(WatchedIndicator.Episodes.TextColor)]</textcolor>
 					<shadowcolor>ff4d4d4d</shadowcolor>
                 </control>
-            </control>
-            <control type="group">
-                <description>Movieset Overlay</description>
-                <visible>[!String.IsEmpty(ListItem$PARAM[listitem].Set) | ListItem$PARAM[listitem].IsCollection | String.Contains(ListItem$PARAM[listitem].Path,videodb://movies/sets/)] + Skin.HasSetting(WatchedIndicator.Sets)</visible>
-                <visible>!Integer.IsGreater(ListItem.PercentPlayed,0) + !Integer.IsGreater(ListItem$PARAM[listitem].PlayCount,0) + !ListItem$PARAM[listitem].IsPlaying + !ListItem$PARAM[listitem].IsRecording</visible>
-				<control type="image">
-                    <texture background="true">$PARAM[overlay_texture]</texture>
-                    <colordiffuse>$INFO[Skin.String(WatchedIndicator.Sets.Color)]</colordiffuse>
-                </control>
-                <control type="image">
-                    <texture>overlays/$PARAM[overlay]/discset.png</texture>
-                    <colordiffuse>$INFO[Skin.String(WatchedIndicator.Sets.TextColor)]</colordiffuse>
-                </control>
-            </control>
+            </control>            
             
             <control type="group">
                 <description>Is Playing</description>
@@ -1328,7 +1315,31 @@
                 </control>
             </control>
         </control>
-    </include>
+		
+		 <!-- TOP-LEFT overlays group -->
+    <control type="group">
+        <visible>[!String.IsEmpty(ListItem$PARAM[listitem].Set) | ListItem$PARAM[listitem].IsCollection | String.Contains(ListItem$PARAM[listitem].Path,videodb://movies/sets/)] + Skin.HasSetting(WatchedIndicator.Sets)</visible>
+        <visible>!Integer.IsGreater(ListItem.PercentPlayed,0) + !Integer.IsGreater(ListItem$PARAM[listitem].PlayCount,69696969696969696969) + !ListItem$PARAM[listitem].IsPlaying + !ListItem$PARAM[listitem].IsRecording</visible>
+        <width>$PARAM[width]</width>
+        <height>$PARAM[height]</height>
+        <left>8</left>
+        <top>0</top>
+
+        <description>Movieset Overlay</description>
+        <!-- Adjust left here if you want to offset inside the top-left box -->
+         
+
+        <control type="image">
+            <texture background="true">diffuse/icon_overlay_flipped.png</texture>
+            <colordiffuse>$INFO[Skin.String(WatchedIndicator.Sets.Color)]</colordiffuse>
+        </control>
+        <control type="image">
+            <texture>overlays/$PARAM[overlay]/discset_flipped.png</texture>
+            <colordiffuse>$INFO[Skin.String(WatchedIndicator.Sets.TextColor)]</colordiffuse>
+        </control>
+    </control>
+
+</include>
             
     <include name="WatchedIndicatorNormal">
         <include content="WatchedIndicatorLayout">

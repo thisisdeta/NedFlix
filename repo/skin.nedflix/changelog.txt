@@ -1,3 +1,10 @@
+Version 1.0.6
+
+- Changed collection icon position to top left
+- Collection icon now shows even if you've also watched a film from the set
+- Similar now defaults to IMDB's 'more like this'
+- Video information no longer closes when you click play
+
 Version 1.0.5
 
 - TMDB helper widgets for films and TV now open with Fen Light (Woohoo!)

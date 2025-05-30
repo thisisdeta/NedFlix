@@ -6,11 +6,12 @@ def change_widget_size():
     """
     Updates two XML files with new widget size values:
       - For IncludesHomeWidgets.xml, updates all occurrences of
-        <height>NUMBER</height>, <width>NUMBER</width> tags
-        and attribute-based values (like height="NUMBER") between lines 301 and 346.
+        <height>NUMBER</height> and <width>NUMBER</width> (both tag-based
+        and attribute-based) between lines 301 and 346.
       - For IncludesBingie.xml, updates the two <param> tags on lines 2192 and 2193.
     
-    Both files will use the same new height and width values provided by the user.
+    The function first reads the current dimensions from IncludesHomeWidgets.xml
+    (the first occurrence in the specified line range) and shows that in the input prompt.
     """
     # === Update IncludesHomeWidgets.xml ===
     widget_file = xbmcvfs.translatePath("special://home/addons/skin.nedflix/1080i/IncludesHomeWidgets.xml")
@@ -21,16 +22,39 @@ def change_widget_size():
     except Exception as e:
         xbmcgui.Dialog().ok("Change Widget Size", "Error reading file: " + str(e))
         return
-    
-    # Prompt for new height/width from the user
-    new_height = xbmcgui.Dialog().input("New Widget Height", type=xbmcgui.INPUT_NUMERIC)
-    new_width  = xbmcgui.Dialog().input("New Widget Width", type=xbmcgui.INPUT_NUMERIC)
+
+    # Define the line range to update (0-indexed)
+    start_line = 300  # corresponds to line 301
+    end_line   = 346  # updates up to line 346 (i.e. index 345)
+
+    # Attempt to get the current height from the range (using a tag-based value)
+    current_height = None
+    current_width  = None
+    for line in lines[start_line: end_line]:
+        m = re.search(r"<height>(\d+)</height>", line)
+        if m:
+            current_height = m.group(1)
+            break
+    for line in lines[start_line: end_line]:
+        m = re.search(r"<width>(\d+)</width>", line)
+        if m:
+            current_width = m.group(1)
+            break
+
+    if current_height is None: 
+        current_height = "unknown"
+    if current_width is None:
+        current_width = "unknown"
+
+    # Prompt for new height/width from the user,
+    # the prompt shows the current value in its header text.
+    new_height = xbmcgui.Dialog().input("New Widget Height (current: %s)" % current_height, type=xbmcgui.INPUT_NUMERIC)
+    new_width  = xbmcgui.Dialog().input("New Widget Width (current: %s)" % current_width, type=xbmcgui.INPUT_NUMERIC)
     
     if not new_height or not new_width:
         xbmcgui.Dialog().ok("Change Widget Size", "Operation cancelled")
         return
 
-    # Clean up the inputs.
     new_height = new_height.strip()
     new_width  = new_width.strip()
     
@@ -38,19 +62,14 @@ def change_widget_size():
         xbmcgui.Dialog().ok("Change Widget Size", "Invalid numeric values")
         return
 
-    # Define the line range to update (0-indexed)
-    start_line = 300  # corresponds to line 301 in human count.
-    end_line   = 346  # updates up to line 346 (i.e. index 345)
-
-    # Compile regex patterns to replace tag-based values (<height>...</height> and <width>...</width>)
+    # Compile regex patterns for tag-based height/width.
     tag_height_pattern = re.compile(r"(<height>)(\d+)(</height>)")
     tag_width_pattern  = re.compile(r"(<width>)(\d+)(</width>)")
-
-    # Compile regex patterns for attribute-based values (height="..." and width="...")
+    # Compile regex patterns for attribute-based height/width.
     attr_height_pattern = re.compile(r'(height=")(\d+)(")')
     attr_width_pattern  = re.compile(r'(width=")(\d+)(")')
-
-    # Process the specified lines in the widget file.
+    
+    # Process the designated range in the widget file.
     for i in range(start_line, min(end_line, len(lines))):
         line = lines[i]
         # Replace tag-style height and width.
@@ -82,7 +101,7 @@ def change_widget_size():
     bingie_start = 2191
     bingie_end   = 2193  # We'll update indices 2191 and 2192
 
-    # Patterns for the <param> tags: change values for width and height.
+    # Patterns for the <param> tags.
     width_param_pattern = re.compile(r'(<param\s+name="width"\s+value=")(\d+)(")')
     height_param_pattern = re.compile(r'(<param\s+name="height"\s+value=")(\d+)(")')
 

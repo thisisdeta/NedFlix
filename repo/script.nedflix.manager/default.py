@@ -9,7 +9,8 @@ import xbmcvfs
 import json
 
 import home_widgets_ordering
-import rename_delete_widgets  
+import rename_delete_widgets
+from change_widget_size import change_widget_size
 
 # Friendly mappings for hubs (used for display)
 HUB_FRIENDLY_MAPPING = {
@@ -412,7 +413,8 @@ def main_menu():
         "Change Theme",
         "Move Widgets",       
         "Rename Widgets",
-        "Delete Widgets",        
+        "Delete Widgets",
+        "Change Widget Size",  # New option inserted here
         "Save and Refresh (Home Widgets)",
         "Save and Force Quit Kodi (All Widgets)",
         "Exit"
@@ -433,12 +435,14 @@ if __name__ == '__main__':
         elif choice == 2:
             rename_delete_widgets.rename_widget(SETTINGS_FILE, HOME_WIDGETS_FILE)
         elif choice == 3:
-            rename_delete_widgets.delete_widget(SETTINGS_FILE, HOME_WIDGETS_FILE)        
+            rename_delete_widgets.delete_widget(SETTINGS_FILE, HOME_WIDGETS_FILE)
         elif choice == 4:
+            change_widget_size()  # New widget size option placed after Delete Widgets
+        elif choice == 5:
             if refresh_skin_and_verify():
                 pass
             sys.exit()
-        elif choice == 5:
-            save_and_close_kodi()
         elif choice == 6:
+            save_and_close_kodi()
+        elif choice == 7:
             sys.exit()

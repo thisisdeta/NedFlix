@@ -79,7 +79,7 @@
         </include>
 		<include content="Fixed_Focus_Navigation" condition="Window.IsActive(1116) | Window.IsActive(1120)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
-            <param name="FixedAnimationHeight" value="-381"/>
+            <param name="FixedAnimationHeight" value="-240"/>
         </include>
     </include>
 
@@ -2189,8 +2189,8 @@
 		<!-- Square Fixed Frame -->
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),square) | Window.IsActive(1120)">
            <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + !$EXP[IsCurrentWidgetSpotlight]"/>
-            <param name="width" value="240" />
-            <param name="height" value="340" />
+            <param name="width" value="550" />
+            <param name="height" value="200" />
             <texture background="true" border="12">$INFO[Skin.String(thumbsborder_focused),bingie/border/poster_fo_,.png]</texture>
         </include>
     </include>
@@ -2474,23 +2474,36 @@
                 <aspectratio align="left" aligny="center">keep</aspectratio>
                 <texture background="true" fallback="colors/color_transparent.png">$PARAM[image]</texture>
             </control>
-<!-- Movie Title with no Clearlogo -->
+<!-- Movie Title with no Clearlogo for all except wrestling hub -->
 			<control type="textbox" id="$PARAM[id]6">
-                <visible>String.EndsWith(Control.GetLabel($PARAM[id]5),color_transparent.png)</visible>
+                <visible>String.EndsWith(Control.GetLabel($PARAM[id]5),color_transparent.png) + !Window.IsActive(1120)</visible>
                 <top>-194</top>
                 <height>184</height>
-                <width max="650">auto</width>
-                <font>Reg32</font> 
+                <width max="1460">auto</width>
+                <font>BaseOne-Regular90</font> 
                 <align>left</align>
                 <aligny>center</aligny>
                 <textcolor>$INFO[Skin.String(BingieLabelTextColor)]</textcolor>
                 <label>$PARAM[text]</label>
                 <include condition="$PARAM[genre_adjust]">Bingie_TextTitle_Adjust_Genre_Anim</include>
 				<autoscroll delay="4000" time="2000" repeat="6000">true</autoscroll>
+            </control>    
+<!-- Movie Title with no Clearlogo for Wrestling Hub -->
+			<control type="textbox" id="$PARAM[id]6">
+                <visible>String.EndsWith(Control.GetLabel($PARAM[id]5),color_transparent.png) + Window.IsActive(1120)</visible>
+                <top>-130</top>
+                <height>184</height>
+                <width max="810">auto</width>
+                <font>HERMES42</font> 
+                <align>left</align>
+                <aligny>left</aligny>
+                <textcolor>gold</textcolor>
+                <label>$PARAM[text]</label>
+                <include condition="$PARAM[genre_adjust]">Bingie_TextTitle_Adjust_Genre_Anim</include>
+				<autoscroll delay="4000" time="2000" repeat="6000">true</autoscroll>
             </control>
         </definition>
-    </include>
-	
+    </include>	
 	<!-- CLEARLOGO - Play Something Hub - Info/Text/Clearlogo -->
     <include name="Bingie_Headline_Item_2">
         <param name="genre_adjust" default="false" />

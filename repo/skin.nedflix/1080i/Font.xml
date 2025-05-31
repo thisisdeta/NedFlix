@@ -3,6 +3,62 @@
 <fonts>
 	<fontset id="Default" unicode="true">
 		<!-- ==================== -->
+		<!--     Deta's fonts     -->
+		<!-- ==================== -->
+		
+		<font>
+            <name>HERMES40</name>
+            <filename>HERMES 1943.ttf</filename>			
+            <size>40</size>
+        </font>
+		<font>
+            <name>HERMES41</name>
+            <filename>HERMES 1943.ttf</filename>			
+            <size>41</size>
+        </font>
+		<font>
+            <name>HERMES42</name>
+            <filename>HERMES 1943.ttf</filename>			
+            <size>42</size>
+        </font>
+		<font>
+            <name>HERMES43</name>
+            <filename>HERMES 1943.ttf</filename>			
+            <size>43</size>
+        </font>
+		<font>
+            <name>HERMES44</name>
+            <filename>HERMES 1943.ttf</filename>			
+            <size>44</size>
+        </font>
+		<font>
+            <name>HERMES45</name>
+            <filename>HERMES 1943.ttf</filename>			
+            <size>45</size>
+        </font>
+		<font>
+            <name>BaseOne-Bold100</name>
+            <filename>BaseOne-Bold.ttf</filename>			
+            <size>100</size>
+        </font>
+		<font>
+            <name>BaseOne-Regular90</name>
+            <filename>BaseOne-Regular.ttf</filename>			
+            <size>90</size>
+        </font>
+		<font>
+            <name>BaseOne-Regular95</name>
+            <filename>BaseOne-Regular.ttf</filename>			
+            <size>95</size>
+        </font>
+		<font>
+            <name>BaseOne-Regular100</name>
+            <filename>BaseOne-Regular.ttf</filename>			
+            <size>100</size>
+        </font>
+		
+	
+		<!-- ==================== -->
 		<!--     System fonts     -->
 		<!-- ==================== -->
         <font>

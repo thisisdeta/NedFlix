@@ -298,14 +298,14 @@
     
     <!-- widget square layout -->
     <include name="widget_layout_square">
-        <height>241</height>
-        <itemlayout height="249" width="238">
+        <height>200</height>
+        <itemlayout height="200" width="550">
             <control type="group">
                 <include content="left">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
-                <width>240</width>
-                <height>240</height>
+                <width>550</width>
+                <height>200</height>
                 <include>SquarePosterPanelLayout</include>
                 <control type="group">
                     <description>widget label overlay</description>
@@ -316,13 +316,13 @@
                 </control>
             </control>
         </itemlayout>
-        <focusedlayout height="249" width="238" condition="!Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout height="200" width="550" condition="!Control.HasFocus($PARAM[widgetid])">
             <control type="group">
                 <include content="left">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
-                <width>240</width>
-                <height>240</height>
+                <width>550</width>
+                <height>200</height>
                 <include>SquarePosterPanelLayout</include>
                 <control type="group">
                     <description>widget label overlay</description>
@@ -337,13 +337,13 @@
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
         </focusedlayout>
-		<focusedlayout height="249" width="238" condition="Control.HasFocus($PARAM[widgetid])">
+		<focusedlayout height="200" width="550" condition="Control.HasFocus($PARAM[widgetid])">
             <control type="group">
                 <include content="left">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
-                <width>240</width>
-                <height>240</height>
+                <width>550</width>
+                <height>200</height>
 				<control type="image">
 					<visible>![Skin.HasSetting(EnableFixedFrameWidgets) + [[Window.IsActive(Home) | $EXP[IsBingieListsActive]] | [[$EXP[IsBingieHubsActive]] + Skin.HasSetting(LockHubWidgets)]]]</visible>
 					<visible>Control.HasFocus($PARAM[widgetid])</visible>

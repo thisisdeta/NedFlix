@@ -374,70 +374,70 @@
     <include name="bingie_music_item_1">
         <include content="bingie_customhub_item">
             <param name="widgetid" value="1510" />
-            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="widgetStyle" value="widget_layout_square" />
             <param name="skinsetting" value="bingiehub-$PARAM[hubname]-510" />
         </include>
     </include>
     <include name="bingie_music_item_2">
         <include content="bingie_customhub_item">
             <param name="widgetid" value="1520" />
-            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="widgetStyle" value="widget_layout_square" />
             <param name="skinsetting" value="bingiehub-$PARAM[hubname]-520" />
         </include>
     </include>
     <include name="bingie_music_item_3">
         <include content="bingie_customhub_item">
             <param name="widgetid" value="1530" />
-            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="widgetStyle" value="widget_layout_square" />
             <param name="skinsetting" value="bingiehub-$PARAM[hubname]-530" />
         </include>
     </include>
     <include name="bingie_music_item_4">
         <include content="bingie_customhub_item">
             <param name="widgetid" value="1540" />
-            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="widgetStyle" value="widget_layout_square" />
             <param name="skinsetting" value="bingiehub-$PARAM[hubname]-540" />
         </include>
     </include>
     <include name="bingie_music_item_5">
         <include content="bingie_customhub_item">
             <param name="widgetid" value="1550" />
-            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="widgetStyle" value="widget_layout_square" />
             <param name="skinsetting" value="bingiehub-$PARAM[hubname]-550" />
         </include>
     </include>
     <include name="bingie_music_item_6">
         <include content="bingie_customhub_item">
             <param name="widgetid" value="1560" />
-            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="widgetStyle" value="widget_layout_square" />
             <param name="skinsetting" value="bingiehub-$PARAM[hubname]-560" />
         </include>
     </include>
     <include name="bingie_music_item_7">
         <include content="bingie_customhub_item">
             <param name="widgetid" value="1570" />
-            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="widgetStyle" value="widget_layout_square" />
             <param name="skinsetting" value="bingiehub-$PARAM[hubname]-570" />
         </include>
     </include>
     <include name="bingie_music_item_8">
         <include content="bingie_customhub_item">
             <param name="widgetid" value="1580" />
-            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="widgetStyle" value="widget_layout_square" />
             <param name="skinsetting" value="bingiehub-$PARAM[hubname]-580" />
         </include>
     </include>
 	<include name="bingie_music_item_9">
         <include content="bingie_customhub_item">
             <param name="widgetid" value="1590" />
-            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="widgetStyle" value="widget_layout_square" />
             <param name="skinsetting" value="bingiehub-$PARAM[hubname]-590" />
         </include>
     </include>
 	<include name="bingie_music_item_10">
         <include content="bingie_customhub_item">
             <param name="widgetid" value="15100" />
-            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="widgetStyle" value="widget_layout_square" />
             <param name="skinsetting" value="bingiehub-$PARAM[hubname]-5100" />
         </include>
     </include>

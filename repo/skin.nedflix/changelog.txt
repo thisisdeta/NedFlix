@@ -1,3 +1,8 @@
+Version 1.0.7
+
+- Added new fonts and colours for titles without logos 
+- The wrestling hub now uses custom landscape widgets
+
 Version 1.0.6
 
 - Changed collection icon position to top left

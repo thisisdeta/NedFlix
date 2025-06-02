@@ -1,3 +1,9 @@
+Version 1.0.4
+
+- Added change Kodi splash screen function
+- Added DedFlix theme (and orange version)
+- Removed old NedFlix theme
+
 Version 1.0.3
 
 - Added change widget size function for square widgets 

@@ -11,6 +11,7 @@ import json
 import home_widgets_ordering
 import rename_delete_widgets
 from change_widget_size import change_widget_size
+from change_splash import choose_splash_screen 
 
 # Friendly mappings for hubs (used for display)
 HUB_FRIENDLY_MAPPING = {
@@ -280,8 +281,9 @@ def change_bingie_logo():
         ("Peach Fuzz",                      "home/bingie_logo_peach_fuzz.png",          "ffbe98"),
         ("Purple",                          "home/bingie_logo_purple.png",              "a515ff"),
         ("Purple (GOG)",                    "home/bingie_logo_purple2.png",             "6900d1"),
-        ("Nedflix",                         "home/bingie_logo_nedflix.png",             "aaff89"),
-        ("Nedflix 2 (Spotify)",             "home/bingie_logo_nedflix2.png",            "1ed760")
+        ("Dedflix",                         "home/bingie_logo_dedflix.png",             "c20c0c"),
+        ("Dedflix (Orange)",                "home/bingie_logo_dedflix2.png",            "fb7e07"),
+        ("Nedflix",                         "home/bingie_logo_nedflix.png",             "1ed760")
     ]
     
     # Build a list of display labels for the selection dialog.
@@ -411,12 +413,13 @@ def change_bingie_logo():
 def main_menu():
     options = [
         "Change Theme",
+        "Change Kodi Splash Screen",
         "Move Widgets",       
         "Rename Widgets",
         "Delete Widgets",
-        "Change Widget Size",  # New option inserted here
+        "Change Widget Size",  
         "Save and Refresh (Home Widgets)",
-        "Save and Force Quit Kodi (All Widgets)",
+        "Save and Force Quit Kodi (All Widgets)",        
         "Exit"
     ]
     return xbmcgui.Dialog().select("Nedflix Manager", options)
@@ -429,20 +432,22 @@ if __name__ == '__main__':
     while True:
         choice = main_menu()
         if choice == 0:
-            change_bingie_logo()  # New function call
+            change_bingie_logo()
         elif choice == 1:
-            reorder_widgets_menu(SETTINGS_FILE)
+            choose_splash_screen()
         elif choice == 2:
-            rename_delete_widgets.rename_widget(SETTINGS_FILE, HOME_WIDGETS_FILE)
+            reorder_widgets_menu(SETTINGS_FILE)
         elif choice == 3:
-            rename_delete_widgets.delete_widget(SETTINGS_FILE, HOME_WIDGETS_FILE)
+            rename_delete_widgets.rename_widget(SETTINGS_FILE, HOME_WIDGETS_FILE)
         elif choice == 4:
-            change_widget_size()  # New widget size option placed after Delete Widgets
+            rename_delete_widgets.delete_widget(SETTINGS_FILE, HOME_WIDGETS_FILE)
         elif choice == 5:
+            change_widget_size()
+        elif choice == 6:
             if refresh_skin_and_verify():
                 pass
             sys.exit()
-        elif choice == 6:
-            save_and_close_kodi()
         elif choice == 7:
+            save_and_close_kodi()        
+        elif choice == 8:
             sys.exit()

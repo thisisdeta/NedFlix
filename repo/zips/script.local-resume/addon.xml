@@ -1,16 +1,22 @@
-<addon id="script.local-resume" version="1.0.3" name="Local Resume" provider-name="ChatGPDeta">
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="script.local-resume" version="1.0.4" name="Local Resume" provider-name="ChatGPDeta">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
     </requires>
+    <!-- Service extension for local resume functionality -->
     <extension point="xbmc.service" library="service.py">
         <provides>service</provides>
-	</extension>
+    </extension>
+    <!-- Plugin extension to supply AEW video listings with watched overlay properties -->
+    <extension point="xbmc.python.pluginsource" library="plugin.py">
+        <provides>executable</provides>
+    </extension>
     <extension point="xbmc.addon.metadata">
-        <summary>Create local resume points for streamed media</summary>
-        <description>An addon that creates local resume points for certain streamed media.</description>
+        <summary>Create local resume points for streamed media and list AEW Videos</summary>
+        <description>An addon that creates local resume points for certain streamed media and also provides a directory listing for AEW videos with watched overlays.</description>
         <platform>all</platform>
         <assets>
-            <icon>icon.png</icon>            
+            <icon>icon.png</icon>
         </assets>
     </extension>
 </addon>

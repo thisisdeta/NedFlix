@@ -1,3 +1,7 @@
+Version 1.0.4
+
+- No longer asks you to resume if you've used Kodi's built in resume function 
+
 Version 1.0.3
 
 - Resume pop-up loads up faster

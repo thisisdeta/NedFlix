@@ -153,26 +153,22 @@ def main():
             if not prompted:
                 resume_pos = resume_manager.get_resume_point(stable_key)
                 if resume_pos > 0:
-                    # Wait up to 2 seconds to get a valid current playback time > 0
-                    current_pos = player.getTime() or 0
-                    tries = 0
-                    while current_pos == 0 and tries < 4:
-                        pytime.sleep(0.5)
-                        current_pos = player.getTime() or 0
-                        tries += 1
-
                     formatted_time = format_time(resume_pos)
                     total_time = player.getTotalTime() or 0
 
+                    # Compute percentage only if total_time is available
                     if total_time > 0:
                         percentage = round((resume_pos / total_time) * 100)
                         resume_label = f"Resume from {formatted_time} ({percentage}% watched)"
                     else:
                         resume_label = f"Resume from {formatted_time}"
 
-                    # Always save resume point as backup
+                    current_pos = player.getTime() or 0
+
+                    # Always keep resume point saved as a backup
                     resume_manager.set_resume_point(stable_key, resume_pos)
 
+                    # Show prompt only if starting playback time < 60s
                     if current_pos < 60:
                         player.pause()
                         dialog = xbmcgui.Dialog()
@@ -186,6 +182,7 @@ def main():
                             xbmc.log(f"Resuming {stable_key} at {resume_pos}s", xbmc.LOGINFO)
                             player.seekTime(resume_pos)
                         else:
+                            # User chose not to resume, clear saved resume point
                             resume_manager.set_resume_point(stable_key, 0)
                 prompted = True
 

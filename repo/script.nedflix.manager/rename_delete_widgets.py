@@ -163,7 +163,7 @@ def get_home_widgets(properties_file):
 # -----------------------------
 # HOME WIDGET FUNCTIONS (using dynamic loader)
 # -----------------------------
-def rename_home_widget():
+def rename_home_widget(settings_file, home_xml_file):
     """
     Provides a dialog workflow to rename a home widget.
     Loads home widgets from the properties file dynamically using get_home_widgets(),
@@ -202,8 +202,9 @@ def rename_home_widget():
         # Let the user select a widget to rename.
         choice = dlg.select("Select widget to rename", display_list)
         if choice == -1:
-            # User cancelled selection: exit the rename function.
-            return
+            # Go back to hub selection
+            return rename_widget(settings_file, home_xml_file)
+
 
         actual_index = valid_indices[choice]
         current_name = display_list[choice]
@@ -237,7 +238,7 @@ def rename_home_widget():
         # After completing (or failing) a rename, loop back to allow another selection.
         
 
-def delete_home_widget():
+def delete_home_widget(settings_file, home_xml_file):
     """
     Provides a dialog workflow to delete a home widget.
     Loads home widgets dynamically using get_home_widgets();
@@ -272,8 +273,9 @@ def delete_home_widget():
         # Let the user select a widget to delete.
         choice = dlg.select("Select widget to delete", display_list)
         if choice == -1:
-            # Exit if the user cancels the selection.
-            return
+            # Go back to hub selection in delete_widget
+            return delete_widget(settings_file, home_xml_file)
+
 
         # Use the actual index from our filtered list.
         actual_index = valid_indices[choice]
@@ -389,7 +391,7 @@ def delete_widget(settings_file, home_xml_file):
     if choice == -1:
         return
     if choice == 0:
-        delete_home_widget()
+        delete_home_widget(settings_file, home_xml_file)
         return
     selected_hub = hubs[choice - 1]
 
@@ -398,44 +400,52 @@ def delete_widget(settings_file, home_xml_file):
         if not widget_names:
             xbmcgui.Dialog().ok("Error", "No widgets found for this hub.")
             break
+
         populated = []
         populated_indices = []
         for idx, name in enumerate(widget_names):
             if "(No widget assigned)" not in name:
                 populated.append(name)
                 populated_indices.append(idx)
+
         if not populated:
             xbmcgui.Dialog().ok("Error", "No populated widgets found for this hub.")
             break
+
         widget_choice = xbmcgui.Dialog().select("Select widget to delete", populated)
         if widget_choice == -1:
-            break
+            # Just break out of widget selection, not the whole hub menu
+            return delete_widget(settings_file, home_xml_file)
+
         actual_index = populated_indices[widget_choice]
         current_name = populated[widget_choice]
         if not xbmcgui.Dialog().yesno("Confirm Delete", f"Are you sure you want to delete '{current_name}'?"):
             continue
+
         widget_id = 510 + actual_index * 10 if actual_index < 9 else 5100
         try:
             with open(settings_file, 'r', encoding='utf-8') as f:
                 content = f.read()
+
             pattern = rf'\s*<setting id="{selected_hub}-{widget_id}\.(?:label|path|sortorder|sortby|LocalizedSortOrder|LocalizedSortBy|target)" type="string">.*?</setting>\s*'
             new_content, count = re.subn(pattern, "", content, flags=re.DOTALL)
             if count == 0:
                 xbmcgui.Dialog().ok("Error", "No widget settings were removed; unable to delete widget.")
                 continue
+
             with open(settings_file, 'w', encoding='utf-8') as f:
                 f.write(new_content)
+
             slot_index = actual_index + 1
             PROPERTIES_FILE = xbmcvfs.translatePath("special://userdata/addon_data/script.skinshortcuts/skin.nedflix.properties")
             update_hub_properties_json(PROPERTIES_FILE, slot_index, "")
             SKIN_XML_FILE = xbmcvfs.translatePath("special://userdata/addon_data/script.skinshortcuts/skin.xml")
-            remove_widget_includes(SKIN_XML_FILE, "2520")  # Adjust widgetid if needed
-#            xbmcgui.Dialog().ok("Success", f"Widget '{current_name}' fully deleted.")
+            remove_widget_includes(SKIN_XML_FILE, "2520")  # Update if needed
         except Exception as e:
             xbmc.log("Error deleting widget: " + str(e), xbmc.LOGERROR)
             xbmcgui.Dialog().ok("Error", "Failed to delete widget.")
             continue
-        # Removing the "Delete Another?" prompt. The loop will automatically re-display the widget selection menu.
+
 
 # -----------------------------
 # MAIN DIALOG FUNCTIONS
@@ -457,7 +467,7 @@ def rename_widget(settings_file, home_xml_file):
         if choice == -1:
             break
         if choice == 0:
-            rename_home_widget()
+            rename_home_widget(settings_file, home_xml_file)
             break
         selected_hub = hubs[choice - 1]
 

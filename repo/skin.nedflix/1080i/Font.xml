@@ -56,6 +56,11 @@
             <filename>BaseOne-Regular.ttf</filename>			
             <size>100</size>
         </font>
+		<font>
+            <name>WE-WRESTLE40</name>
+            <filename>WE WRESTLE.ttf</filename>			
+            <size>40</size>
+        </font>
 		
 	
 		<!-- ==================== -->

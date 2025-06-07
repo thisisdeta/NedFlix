@@ -188,7 +188,7 @@
     <!-- Year / Premiered / PVR Time -->
     <include name="Year_Premiered_PVRTime_Details_Row">
         <control type="label" id="6114">
-            <visible>!String.IsEmpty(Control.GetLabel(6114))</visible>
+            <visible></visible>
             <posy>6</posy>
             <height>36</height>
             <width>auto</width>
@@ -197,7 +197,7 @@
             <textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
             <label>$VAR[YearOrPremiered]</label>
             <include>Default_Visible_Fade</include>
-        </control>
+        </control>		
     </include>
 	
 	<!-- Music Artist Year -->
@@ -397,30 +397,56 @@
             </control>
 	</include>
 
-	<!-- MPAA UK Icons -->
-    <include name="MPAA_Details_RowNew">
-	<include>Default_Visible_Fade</include>
-	<!-- Icon display -->
-		<control type="image">
-			<visible>[!String.IsEmpty(ListItem.MPAA) + [String.Contains(ListItem.mpaa,US:G) | String.Contains(ListItem.mpaa,USA:G) | String.Contains(ListItem.mpaa,Rated G) | String.IsEqual(ListItem.Mpaa,G) |
-			String.Contains(ListItem.mpaa,PG-13) | String.IsEqual(ListItem.mpaa,US:PG) | String.IsEqual(ListItem.mpaa,USA:PG) | String.IsEqual(ListItem.mpaa,Rated PG) | String.IsEqual(ListItem.Mpaa,PG) |
-			String.Contains(ListItem.mpaa,US:R) | String.Contains(ListItem.mpaa,USA:R) | String.Contains(ListItem.mpaa,Rated R) | String.IsEqual(ListItem.Mpaa,R) | String.Contains(ListItem.mpaa,NC-17) | String.Contains(ListItem.mpaa,NR) |	
-			String.IsEqual(ListItem.mpaa,TV-Y) | String.Contains(ListItem.mpaa,TV-Y7) | String.Contains(ListItem.mpaa,TV-G) | String.Contains(ListItem.mpaa,TV-PG) | String.Contains(ListItem.mpaa,TV-14) | String.Contains(ListItem.mpaa,TV-MA) | String.Contains(ListItem.mpaa,UK:U) | String.Contains(ListItem.mpaa,GB-U) | String.Contains(ListItem.mpaa,Rated U) | String.IsEqual(ListItem.mpaa,U) | 
-			String.Contains(ListItem.mpaa,UK:PG) | String.Contains(ListItem.mpaa,GB-PG) | String.Contains(ListItem.mpaa,Guidance) | String.Contains(ListItem.mpaa,UK:12A) | String.Contains(ListItem.mpaa,GB-12A) | String.Contains(ListItem.mpaa,Rated 12A) | String.IsEqual(ListItem.mpaa,12A) | String.IsEqual(ListItem.mpaa,UK:12) | String.IsEqual(ListItem.mpaa,GB-12) | String.IsEqual(ListItem.mpaa,Rated 12) | String.IsEqual(ListItem.mpaa,12) | 
-			String.Contains(ListItem.mpaa,UK:15) | String.Contains(ListItem.mpaa,GB-15) | String.Contains(ListItem.mpaa,Rated 15) | String.IsEqual(ListItem.mpaa,15) | String.Contains(ListItem.mpaa,Mature) | String.Contains(ListItem.mpaa,UK:18) | String.Contains(ListItem.mpaa,GB-18) | String.Contains(ListItem.mpaa,Rated 18) | String.IsEqual(ListItem.mpaa,18)]] 
-			| [!String.IsEmpty(Container(99950).ListItem.mpaa) + [String.Contains(Container(99950).ListItem.mpaa,US:G) | String.Contains(Container(99950).ListItem.mpaa,USA:G) | String.Contains(Container(99950).ListItem.mpaa,Rated G) | String.IsEqual(Container(99950).ListItem.mpaa,G) |
-			String.Contains(Container(99950).ListItem.mpaa,PG-13) | String.IsEqual(Container(99950).ListItem.mpaa,US:PG) | String.IsEqual(Container(99950).ListItem.mpaa,USA:PG) | String.IsEqual(Container(99950).ListItem.mpaa,Rated PG) | String.IsEqual(Container(99950).ListItem.mpaa,PG) |
-			String.Contains(Container(99950).ListItem.mpaa,US:R) | String.Contains(Container(99950).ListItem.mpaa,USA:R) | String.Contains(Container(99950).ListItem.mpaa,Rated R) | String.IsEqual(Container(99950).ListItem.mpaa,R) | String.Contains(Container(99950).ListItem.mpaa,NC-17) | String.Contains(Container(99950).ListItem.mpaa,NR) | String.Contains(Container(99950).ListItem.mpaa,Not) | String.Contains(Container(99950).ListItem.mpaa,Unrated) | String.Contains(Container(99950).ListItem.mpaa,Passed) | String.Contains(Container(99950).ListItem.mpaa,Approved) | 
-			String.IsEqual(Container(99950).ListItem.mpaa,TV-Y) | String.Contains(Container(99950).ListItem.mpaa,TV-Y7) | String.Contains(Container(99950).ListItem.mpaa,TV-G) |String.Contains(Container(99950).ListItem.mpaa,TV-PG) | String.Contains(Container(99950).ListItem.mpaa,TV-14) | String.Contains(Container(99950).ListItem.mpaa,TV-MA) | String.Contains(Container(99950).ListItem.mpaa,USA:TV-MA) | String.Contains(Container(99950).ListItem.mpaa,GB-U) | String.Contains(Container(99950).ListItem.mpaa,Rated U) | String.IsEqual(Container(99950).ListItem.mpaa,U) | 
-			String.Contains(Container(99950).ListItem.mpaa,UK:PG) | String.Contains(Container(99950).ListItem.mpaa,GB-PG) | String.Contains(Container(99950).ListItem.mpaa,Guidance) | String.Contains(Container(99950).ListItem.mpaa,GB-12A) | String.Contains(Container(99950).ListItem.mpaa,Rated 12A) | String.IsEqual(Container(99950).ListItem.mpaa,12A) | String.IsEqual(Container(99950).ListItem.mpaa,GB-12) | String.IsEqual(Container(99950).ListItem.mpaa,Rated 12) | String.IsEqual(Container(99950).ListItem.mpaa,12) | 
-			String.Contains(Container(99950).ListItem.mpaa,UK:15) | String.Contains(Container(99950).ListItem.mpaa,GB-15) | String.Contains(Container(99950).ListItem.mpaa,Rated 15) | String.IsEqual(Container(99950).ListItem.mpaa,15) | String.Contains(Container(99950).ListItem.mpaa,Mature) | String.Contains(Container(99950).ListItem.mpaa,UK:18) | String.Contains(Container(99950).ListItem.mpaa,GB-18) | String.Contains(Container(99950).ListItem.mpaa,Rated 18) | String.IsEqual(Container(99950).ListItem.mpaa,18)]] + $EXP[EXP_TMDBHelper_Metadata]</visible>
-			<width>56</width>
-			<height>50</height>
-            <aspectratio>keep</aspectratio>
-			<texture>$VAR[mediaflags_large_rating_UK_icons]</texture>
-			<include>Default_Visible_Fade</include>
-        </control>
-    </include>
+	<include name="MPAA_Details_RowNew">
+	  <include>Default_Visible_Fade</include>
+	  <control type="image">
+		<!-- Only draw the icon after ListItem.Label is non-empty (i.e. item metadata is loaded) -->
+		<visible>!String.IsEmpty(ListItem.Label) + !String.IsEmpty(ListItem.Year)</visible>
+		<width>56</width>
+		<height>50</height>
+		<aspectratio>keep</aspectratio>
+		<texture>$VAR[mediaflags_test_UK_icons]</texture>
+		<include>Default_Visible_Fade</include>
+	  </control>
+	  
+	  <include>Default_Visible_Fade</include>
+	  <control type="image">
+		<!-- Only draw the icon after ListItem.Label is non-empty (i.e. item metadata is loaded) -->
+		<visible>Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + String.Contains(ListItem.Title, collision)</visible>
+		<width>56</width>
+		<height>50</height>
+		<aspectratio>keep</aspectratio>
+		<texture>flags/flags_color/mpaa/bbfc_15_certificate_uk.png</texture>
+		<include>Default_Visible_Fade</include>
+	  </control>
+	  
+	  <include>Default_Visible_Fade</include>
+	  <control type="image">
+		<!-- Only draw the icon after ListItem.Label is non-empty (i.e. item metadata is loaded) -->
+		<visible>Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + String.Contains(ListItem.Title, dynamite)</visible>
+		<width>56</width>
+		<height>50</height>
+		<aspectratio>keep</aspectratio>
+		<texture>flags/flags_color/mpaa/bbfc_15_certificate_uk.png</texture>
+		<include>Default_Visible_Fade</include>
+	  </control>
+	  
+	  <include>Default_Visible_Fade</include>
+	  <control type="image">
+		<!-- Only draw the icon after ListItem.Label is non-empty (i.e. item metadata is loaded) -->
+		<visible>Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + !String.Contains(ListItem.Title, dynamite) + !String.Contains(ListItem.Title, collision)</visible>
+		<width>56</width>
+		<height>50</height>
+		<aspectratio>keep</aspectratio>
+		<texture>flags/flags_color/mpaa/bbfc_18_certificate_uk.png</texture>
+		<include>Default_Visible_Fade</include>
+	  </control>
+	  
+	</include>
+	
+	
+
+
 			
 	<!-- MPAA Color Icons -->
     <include name="MPAA_Details_RowUS">
@@ -737,11 +763,9 @@
 		<param name="visibility" default="true" />										  
           <definition>
 		      <control type="grouplist">
-                  <nested/>
-				  <visible>!Window.IsActive(1120)</visible>
+                  <nested/>				  
 				  <visible>!Skin.HasSetting(EnableCastThumb) | [Skin.HasSetting(EnableCastThumb) + Container.Content(seasons)]</visible>
-				  <visible>$PARAM[visibility]</visible>
-                  <visible>$EXP[IsMovieDBType] | $EXP[IsTvShowDBType] | $EXP[IsSeasonDBType] | [String.IsEqual(ListItem.DBTYPE,artist) | String.IsEqual(ListItem.DBTYPE,album)] + [!String.IsEmpty(ListItem.Property(Album_Description)) | !String.IsEmpty(ListItem.Property(Artist_Description))] | String.Contains(ListItem.Path,videodb://movies/sets/)</visible>
+				  <visible></visible>                  
 				  <visible>Skin.HasSetting(EnableTop250) + Skin.HasSetting(EnableRatings) + String.IsEmpty(Control.GetLabel(8231)) + !Integer.IsGreater(ListItem.PercentPlayed,1) | [$EXP[IsMainMenuOpened] + Integer.IsGreater(Window(Home).Property(ListItem.PercentPlayed),1)] | 
 				  Skin.HasSetting(EnableTop250) + Skin.HasSetting(EnableRatings) + String.IsEmpty(Control.GetLabel(8231)) + !Skin.HasSetting(MovieDetailsHome) + Integer.IsGreater(ListItem.PercentPlayed,1) | 
 				  [!Skin.HasSetting(EnableTop250) | !Skin.HasSetting(EnableRatings)] + !Skin.HasSetting(MovieDetailsHome) | 
@@ -778,7 +802,7 @@
                           <texture>$VAR[BingieMoreDetailsImage,bingie/details/white/,.png]</texture>
                       </control>
                   </control>
-				  <!-- Red Circle More Details - Under Movie Info -->
+				  <!-- Red Circle More Details - Under Movie Info -->				  
 				  <control type="textbox" id="84">
                       <animation effect="fade" time="150">Visible</animation>
                       <height>115</height>	gets a 3 line textbox for the Cast info to display			  
@@ -1054,6 +1078,20 @@
 
 	<!-- Choose Year / Premiered -->
 	<variable name="YearOrPremiered">
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + String.Contains(ListItem.Title, collision)">2023</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + String.Contains(ListItem.Title, dynamite)">2019</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + !String.Contains(ListItem.Title, collision) + !String.Contains(ListItem.Title, dynamite) + String.Contains(ListItem.Title, 2019)">2019</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + !String.Contains(ListItem.Title, collision) + !String.Contains(ListItem.Title, dynamite) + String.Contains(ListItem.Title, 2020)">2020</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + !String.Contains(ListItem.Title, collision) + !String.Contains(ListItem.Title, dynamite) + String.Contains(ListItem.Title, 2021)">2021</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + !String.Contains(ListItem.Title, collision) + !String.Contains(ListItem.Title, dynamite) + String.Contains(ListItem.Title, 2022)">2022</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + !String.Contains(ListItem.Title, collision) + !String.Contains(ListItem.Title, dynamite) + String.Contains(ListItem.Title, 2023)">2023</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + !String.Contains(ListItem.Title, collision) + !String.Contains(ListItem.Title, dynamite) + String.Contains(ListItem.Title, 2024)">2024</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + !String.Contains(ListItem.Title, collision) + !String.Contains(ListItem.Title, dynamite) + String.Contains(ListItem.Title, 2025)">2025</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + !String.Contains(ListItem.Title, collision) + !String.Contains(ListItem.Title, dynamite) + String.Contains(ListItem.Title, 2026)">2026</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + !String.Contains(ListItem.Title, collision) + !String.Contains(ListItem.Title, dynamite) + String.Contains(ListItem.Title, 2027)">2027</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + !String.Contains(ListItem.Title, collision) + !String.Contains(ListItem.Title, dynamite) + String.Contains(ListItem.Title, 2028)">2028</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + !String.Contains(ListItem.Title, collision) + !String.Contains(ListItem.Title, dynamite) + String.Contains(ListItem.Title, 2029)">2029</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + !String.Contains(ListItem.Title, collision) + !String.Contains(ListItem.Title, dynamite) + String.Contains(ListItem.Title, 2030)">2030</value>		
 		<value condition="[$EXP[IsMovieDBType] + Skin.HasSetting(AirDateMovies)] | [$EXP[IsTvShowDBType] + Skin.HasSetting(AirDateShows)] | [$EXP[IsSeasonDBType] + Skin.HasSetting(AirDateSeasons)] | [$EXP[IsEpisodeDBType] + Skin.HasSetting(AirDateEpisodes)]">$VAR[GetPremiered]</value>
 		<value>$VAR[GetYear]</value>
 	</variable>
@@ -1124,7 +1162,11 @@
 
     <!--Duration Info -->
     <variable name="GetDuration">
-        <!-- Hours not disabled -->
+	
+        <!-- Wrestling -->
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + String.Contains(ListItem.Title, collision)">2h</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + String.Contains(ListItem.Title, dynamite)">2h</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + !String.Contains(ListItem.Title, dynamite) + !String.Contains(ListItem.Title, collision)">3-4h</value>
         <!-- normal -->
         <value condition="Integer.IsGreater(ListItem.Duration(h),0)">$INFO[ListItem.Duration(h),,h ]$INFO[ListItem.Duration(m),,m]</value>
         <value condition="!String.IsEmpty(ListItem.Duration) + Integer.IsEqual(ListItem.Duration(h),0)">$INFO[ListItem.Duration(mins),,m]</value>
@@ -1134,7 +1176,8 @@
         <!-- regular format fallback -->
         <value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration]</value>
         <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Duration))">$INFO[Window(Home).Property(ListItem.Duration)]</value>
-		<value condition="!String.IsEmpty(Container(99950).ListItem.Duration) + $EXP[EXP_TMDBHelper_Metadata]">$INFO[Container(99950).ListItem.Duration(h),,h ]$INFO[Container(99950).ListItem.Duration(m),,m]</value>
+		<value condition="!String.IsEmpty(Container(99950).ListItem.Duration) + $EXP[EXP_TMDBHelper_Metadata]">$INFO[Container(99950).ListItem.Duration(h),,h ]$INFO[Container(99950).ListItem.Duration(m),,m]</value>		
+		
     </variable>
 
     <!-- Total Seasons/Episodes Info -->
@@ -1493,11 +1536,11 @@
 
     <!-- Bingie More Details (pseudo-random) -->
     <variable name="BingieMoreDetails">		
-        <value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Container(99950).ListItem.Property(Awards))">$INFO[Container(99950).ListItem.Property(Awards)]</value>       
-        <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Container(99950).ListItem.Director) + !String.IsEmpty(Container(99950).ListItem.Cast) + $EXP[IsMovieDBType]">$INFO[Container(99950).ListItem.Director,$LOCALIZE[31541] ] $LOCALIZE[31149] $INFO[Container(99950).ListItem.Property(cast.1.name)]$INFO[Container(99950).ListItem.Property(cast.2.name),$COMMA ,]$INFO[Container(99950).ListItem.Property(cast.3.name),$COMMA ,]$INFO[Container(99950).ListItem.Property(cast.4.name), $LOCALIZE[31150] ] $LOCALIZE[31545].</value>	
-		<value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Container(99950).ListItem.Property(Network.1.name)) + !String.IsEmpty(Container(99950).ListItem.Cast) + !$EXP[IsMovieDBType]">$INFO[Container(99950).ListItem.Property(Network.1.name)] $LOCALIZE[31546] $INFO[Container(99950).ListItem.Property(cast.1.name)]$INFO[Container(99950).ListItem.Property(cast.2.name),$COMMA ,]$INFO[Container(99950).ListItem.Property(cast.3.name),$COMMA ,]$INFO[Container(99950).ListItem.Property(cast.4.name),$COMMA ,]$INFO[Container(99950).ListItem.Property(cast.5.name), $LOCALIZE[31150] ] $LOCALIZE[31545].</value>
-		<value condition="Integer.IsLessOrEqual(System.Time(ss),45) + !String.IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>
-        <value condition="[!String.IsEmpty(ListItem.Genre) | !String.IsEmpty(Container(99950).ListItem.Property(Set.Genres))] + Integer.IsLessOrEqual(System.Time(ss),60) + !String.Contains(ListItem.Genre,unknown)">$VAR[GetGenres]</value>
+        <value condition="!Window.IsActive(1120) + Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Container(99950).ListItem.Property(Awards))">$INFO[Container(99950).ListItem.Property(Awards)]</value>       
+        <value condition="!Window.IsActive(1120) + Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Container(99950).ListItem.Director) + !String.IsEmpty(Container(99950).ListItem.Cast) + $EXP[IsMovieDBType]">$INFO[Container(99950).ListItem.Director,$LOCALIZE[31541] ] $LOCALIZE[31149] $INFO[Container(99950).ListItem.Property(cast.1.name)]$INFO[Container(99950).ListItem.Property(cast.2.name),$COMMA ,]$INFO[Container(99950).ListItem.Property(cast.3.name),$COMMA ,]$INFO[Container(99950).ListItem.Property(cast.4.name), $LOCALIZE[31150] ] $LOCALIZE[31545].</value>	
+		<value condition="!Window.IsActive(1120) + Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Container(99950).ListItem.Property(Network.1.name)) + !String.IsEmpty(Container(99950).ListItem.Cast) + !$EXP[IsMovieDBType]">$INFO[Container(99950).ListItem.Property(Network.1.name)] $LOCALIZE[31546] $INFO[Container(99950).ListItem.Property(cast.1.name)]$INFO[Container(99950).ListItem.Property(cast.2.name),$COMMA ,]$INFO[Container(99950).ListItem.Property(cast.3.name),$COMMA ,]$INFO[Container(99950).ListItem.Property(cast.4.name),$COMMA ,]$INFO[Container(99950).ListItem.Property(cast.5.name), $LOCALIZE[31150] ] $LOCALIZE[31545].</value>
+		<value condition="!Window.IsActive(1120) + Integer.IsLessOrEqual(System.Time(ss),45) + !String.IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>
+        <value condition="!Window.IsActive(1120) + [!String.IsEmpty(ListItem.Genre) | !String.IsEmpty(Container(99950).ListItem.Property(Set.Genres))] + Integer.IsLessOrEqual(System.Time(ss),60) + !String.Contains(ListItem.Genre,unknown)">$VAR[GetGenres]</value>
     </variable>
 	
     <!-- Bingie More Details Image (pseudo-random) -->
@@ -1551,7 +1594,10 @@
     </variable>
 
     <variable name="BingiePlot">
-        <!-- spotlight widget (inside container) -->
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + String.Contains(ListItem.Title, collision)">AEW Collision is a weekly professional wrestling TV program. It is produced by All Elite Wrestling and airs every Saturday night from 8-10pm on TNT in the US.</value>
+        <value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + String.Contains(ListItem.Title, dynamite)">AEW Dynamite is a weekly professional wrestling TV program. It is produced by All Elite Wrestling and airs every Wednesday night from 8-10pm on TBS and Max in the US.</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + !String.Contains(ListItem.Title, dynamite) + !String.Contains(ListItem.Title, collision)">AEW PPVs and specials are premium events that usually air live on selected weekends. They feature championship matches, major storylines and are the hightlight of AEW.</value>		
+		<!-- spotlight widget (inside container) -->
         <value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
         <value condition="!String.IsEmpty(ListItem.Property(Plot))">$INFO[ListItem.Property(Plot)]</value>
         <value condition="!String.IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
@@ -2488,12 +2534,40 @@
                 <include condition="$PARAM[genre_adjust]">Bingie_TextTitle_Adjust_Genre_Anim</include>
 				<autoscroll delay="4000" time="2000" repeat="6000">true</autoscroll>
             </control>    
-<!-- Movie Title with no Clearlogo for Wrestling Hub -->
+<!-- Movie Title for Wrestling Hub (AEW Only) -->
 			<control type="textbox" id="$PARAM[id]6">
-                <visible>String.EndsWith(Control.GetLabel($PARAM[id]5),color_transparent.png) + Window.IsActive(1120)</visible>
+                <visible>String.EndsWith(Control.GetLabel($PARAM[id]5),color_transparent.png) + Window.IsActive(1120) + String.Contains(ListItem.Label, AEW)</visible>
                 <top>-130</top>
                 <height>184</height>
-                <width max="810">auto</width>
+                <width max="800">auto</width>
+                <font>HERMES42</font> 
+                <align>left</align>
+                <aligny>left</aligny>
+                <textcolor>goldenrod</textcolor>
+                <label>$PARAM[text]</label>
+                <include condition="$PARAM[genre_adjust]">Bingie_TextTitle_Adjust_Genre_Anim</include>
+				<autoscroll delay="4000" time="2000" repeat="6000">true</autoscroll>
+            </control>
+<!-- Movie Title for Wrestling Hub (WWE Only) -->
+			<control type="textbox" id="$PARAM[id]6">
+                <visible>String.EndsWith(Control.GetLabel($PARAM[id]5),color_transparent.png) + Window.IsActive(1120) + String.Contains(ListItem.Label, WWE)</visible>
+                <top>-130</top>
+                <height>184</height>
+                <width max="800">auto</width>
+                <font>HERMES42</font> 
+                <align>left</align>
+                <aligny>left</aligny>
+                <textcolor>goldenrod</textcolor>
+                <label>$PARAM[text]</label>
+                <include condition="$PARAM[genre_adjust]">Bingie_TextTitle_Adjust_Genre_Anim</include>
+				<autoscroll delay="4000" time="2000" repeat="6000">true</autoscroll>
+            </control>
+<!-- Movie Title for Wrestling Hub (Everything else) -->			
+			<control type="textbox" id="$PARAM[id]6">
+                <visible>String.EndsWith(Control.GetLabel($PARAM[id]5),color_transparent.png) + Window.IsActive(1120) + !String.Contains(ListItem.Label, AEW) + !String.Contains(ListItem.Label, WWE)</visible>
+                <top>-130</top>
+                <height>184</height>
+                <width max="800">auto</width>
                 <font>HERMES42</font> 
                 <align>left</align>
                 <aligny>left</aligny>
@@ -2502,6 +2576,8 @@
                 <include condition="$PARAM[genre_adjust]">Bingie_TextTitle_Adjust_Genre_Anim</include>
 				<autoscroll delay="4000" time="2000" repeat="6000">true</autoscroll>
             </control>
+			
+			
         </definition>
     </include>	
 	<!-- CLEARLOGO - Play Something Hub - Info/Text/Clearlogo -->

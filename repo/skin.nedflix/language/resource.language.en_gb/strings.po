@@ -1050,7 +1050,7 @@ msgid "Memory Usage"
 msgstr ""
 
 msgctxt "#31258"
-msgid "Enable finish time, current time & total duration for OSD playback"
+msgid "Enable finish time & total duration for OSD playback"
 msgstr ""
 
 msgctxt "#31259"
@@ -2687,7 +2687,7 @@ msgid "Wrestling"
 msgstr ""
 
 msgctxt "#31903"
-msgid "Enable MPAA rating bar"
+msgid "Hide MPAA rating bar"
 msgstr ""
 
 msgctxt "#31904"
@@ -2706,4 +2706,6 @@ msgctxt "#31907"
 msgid "Show user comments in reviews & critics"
 msgstr ""
 
-
+msgctxt "#31908"
+msgid "Enable clock on OSD Playback"
+msgstr ""

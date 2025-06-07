@@ -709,7 +709,7 @@
 						</control> 
 					</control>	
 
-					<!-- Bingie Home Plot -->
+					<!-- Bingie Home Plot -->					
                     <control type="textbox" id="90009">
 					<visible>!$EXP[IsMainMenuOpened]</visible>
 					<visible>!$EXP[IsCategoryDBType]</visible>
@@ -817,7 +817,7 @@
 				<height>165</height>
 				<align>right</align>
 				<aspectratio align="right">keep</aspectratio>
-				<texture>home/bingie_logo_nedflix2.png</texture>
+				<texture>home/bingie_logo_nedflix.png</texture>
 			</control>
 			
 			<control type="image">
@@ -829,7 +829,7 @@
 				<height>165</height>
 				<align>right</align>
 				<aspectratio align="right">keep</aspectratio>
-				<texture>home/bingie_logo_nedflix2.png</texture>
+				<texture>home/bingie_logo_nedflix.png</texture>
 			</control>
 
 			<control type="grouplist">

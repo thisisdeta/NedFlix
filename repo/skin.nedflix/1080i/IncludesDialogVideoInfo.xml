@@ -1513,7 +1513,7 @@
 				
 						<control type="grouplist" id="8000">
 							<width>550</width>
-							<height>320</height>
+							<height>512</height>
                             <orientation>vertical</orientation>
 							<itemgap>0</itemgap>
                             <onup>noop</onup>
@@ -1740,7 +1740,7 @@
 								<radioposy>22</radioposy>
                                 <radiowidth>22</radiowidth>
                                 <radioheight>22</radioheight>
-								<onclick></onclick>
+								<onclick>Dialog.Close(movieinformation)</onclick>
 
 								<!-- TMDb Helper branch: if the TMDb property is available, use the custom Fen Light URL -->
 								<onclick condition="!String.IsEmpty(ListItem.Property(tmdb_id))">
@@ -1757,6 +1757,22 @@
 								<onclick condition="String.IsEmpty(ListItem.Property(tmdb_id)) + String.IsEmpty(ListItem.TMDBNumber) + String.IsEmpty(ListItem.FileNameAndPath)">
 								  AlarmClock(PlayMovie,PlayMedia($ESCINFO[ListItem.FolderPath]),00:01,silent)
 								</onclick>
+							</control>
+
+                            <!-- Show Movie Set/Collection
+                            <control type="radiobutton" id="619">
+								<visible>!String.IsEqual(ListItem.Property(tmdb_collection_id), "") + !String.IsEqual(ListItem.Property(tmdb_collection_id), "0")</visible>
+                                <include>Bingie_InfoDialog_Button_Default_Defs</include>
+                                <include content="Bingie_InfoDialog_Button_Texture">
+                                    <param name="radiotexture" value="dialogs/videoinfo/info/video_versions.png"/>
+                                </include>
+                                <label>$INFO[ListItem.Property(collection_name)] - $INFO[ListItem.Property(tmdb_collection_id)]</label>
+                                <radioposx>19</radioposx>
+								<radioposy>22</radioposy>
+                                <radiowidth>22</radiowidth>
+                                <radioheight>22</radioheight>
+								<onclick condition="!String.IsEmpty(ListItem.Property(tmdb_collection_id))">RunPlugin(plugin://plugin.video.fenlight/?mode=open_movieset_choice&amp;key_id=$INFO[ListItem.Property(tmdb_collection_id)]&amp;name=$INFO[ListItem.Property(collection_name_encoded)]&amp;is_external=false)</onclick>
+ 							 
 							</control>							
 
                             <!-- Resume -->
@@ -1989,7 +2005,7 @@
 								<onclick condition="String.IsEqual(ListItem.DBType,episode) + String.IsEmpty(ListItem.Property(tmdb_id))">RunScript(plugin.video.themoviedb.helper,sync_trakt,tmdb_id=$INFO[Container(99950).ListItem.Property(tmdb_id)],$VAR[Path_Param_Type],season=$INFO[ListItem.Season],episode=$INFO[ListItem.Episode],cache_refresh)</onclick>
                             </control>
 
-							<!--Plot & Critics-->
+							<!--Reviews & Critics-->
                             <control type="radiobutton" id="60">
                                 <visible>Skin.HasSetting(videoinfo_button_plot)</visible>
                                 <visible>!String.IsEmpty(ListItem.Plot)</visible>
@@ -2004,7 +2020,7 @@
                                 <radioheight>24</radioheight>
 								<onfocus>SetProperty(Path.Reviews,"$VAR[Path_Reviews]")</onfocus>
                                 <onclick>SetProperty(AdditionalInfo, plot)</onclick>
-								<onclick>AlarmClock(FocusText,SetFocus(1050),00:01,silent)</onclick>
+								<onclick>SetFocus(8999,0)</onclick>
                             </control>						
 							
 							<!--Credit & More Info Button-->

@@ -3,15 +3,16 @@
 <includes>	
 	<include name="View_51_ListDetails">	
 		<control type="group">
+			<posx>35</posx>            
 			<defaultcontrol always="true">51</defaultcontrol>
 			<visible>Control.IsVisible(51)</visible>
 			<include>animation_view_change</include>           		
 			<control type="list" id="51">
 				<animation effect="slide" end="-637" time="0" condition="Skin.HasSetting(View51_ShowInfoRight)">Conditional</animation>
 				<bottom>144</bottom>
-                <height>721</height>	
-				<left>697</left>
-				<width>1290</width>
+                <height>762</height>	
+				<left>550</left>
+				<width>1884</width>
 				<onup>51</onup>
 				<ondown>51</ondown>
 				<onleft>9000</onleft>
@@ -31,7 +32,7 @@
                         <!--Label 1-->
                         <posx>14</posx>
 						<posy>0</posy>
-                        <width>1141</width>
+                        <width>1238</width>
                         <font>Reg28</font>
                         <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
                         <label>$VAR[ListTitle]</label>
@@ -41,7 +42,7 @@
                     <control type="image">
 						<posy>0</posy>
 						<height>90</height>
-						<width>1163</width>
+						<width>1290</width>
 						<texture border="10">diffuse/panel.png</texture>
 						<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
 					</control>
@@ -49,7 +50,7 @@
                         <!--Label 1-->
                         <posx>14</posx>
 						<posy>-2</posy>
-                        <width>1141</width>
+                        <width>1238</width>
                         <height>55</height>
                         <font>Reg36</font>
 						<scroll>true</scroll>
@@ -61,7 +62,7 @@
                         <!--Label 2-->
                         <posx>14</posx>
                         <posy>49</posy>
-                        <width>1141</width>
+                        <width>1238</width>
                         <height>30</height>
                         <font>Reg28</font>
 						<scroll>true</scroll>

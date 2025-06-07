@@ -414,6 +414,21 @@
 					<height>100%</height>
 					<texture background="true">overlays/osd_gradient.png</texture>
 				</control>
+				<!-- Current Time OSD Info-->
+				<control type="label">
+					<description>Current Time</description>
+					<visible>Skin.HasSetting(EnableSoloClock)</visible>
+					<animation effect="fade" time="350" delay="250" condition="Window.IsActive(videoosd)">Visible</animation>
+					<animation effect="fade" end="0" time="350" condition="Window.IsActive(videoosd)">Hidden</animation>
+					<animation effect="slide" end="0,-101" condition="Player.HasAudio">conditional</animation>
+					<bottom>25</bottom>
+					<posy>0</posy>
+					<width>1920</width>
+					<align>center</align>
+					<font>Bold30</font>
+					<textcolor>$INFO[Skin.String(BingieOSDTextColor)]</textcolor>
+					<info>System.Time</info>
+				</control>
 				<!-- Progress Bars White Line Bottom Center-->
 				<control type="progress">
 					<visible>!VideoPlayer.HasEpg</visible>
@@ -572,23 +587,7 @@
 					<textcolor>$INFO[Skin.String(BingieOSDTextColor)]</textcolor>
 					<!--<label>$VAR[FinishTime, [B]$LOCALIZE[31112]: [/B]]</label>-->
 					<label>[B]$LOCALIZE[31112]: [/B] [B]$VAR[FinishTime][/B] </label>
-				</control>
-				
-				<!-- Current Time OSD Info-->
-				<control type="label">
-					<description>Current Time</description>
-					<visible>![Skin.HasSetting(EnableOSDInfo) + Window.IsActive(videoosd)] | [Player.ShowInfo + !Window.IsActive(videoosd)]</visible>
-					<animation effect="fade" time="350" delay="250" condition="Window.IsActive(videoosd)">Visible</animation>
-					<animation effect="fade" end="0" time="350" condition="Window.IsActive(videoosd)">Hidden</animation>
-					<animation effect="slide" end="0,-101" condition="Player.HasAudio">conditional</animation>
-					<bottom>25</bottom>
-					<posy>0</posy>
-					<width>1920</width>
-					<align>center</align>
-					<font>Bold30</font>
-					<textcolor>$INFO[Skin.String(BingieOSDTextColor)]</textcolor>
-					<info>System.Time</info>
-				</control>
+				</control>				
 	
 				<!-- Total Duration OSD Info -->
 				<control type="label">
@@ -1927,11 +1926,11 @@
 			<height>$PARAM[bottomsize]</height>
 			<itemgap>$PARAM[gap]</itemgap>
 			<onleft condition="!Player.SeekEnabled">noop</onleft>
-            <onleft condition="Player.SeekEnabled + Player.Paused">PlayerControl(Play)</onleft>
-            <onleft condition="Player.SeekEnabled">back</onleft>
+            <onleft condition="Player.SeekEnabled + Player.Paused">StepBack</onleft>
+            <onleft condition="Player.SeekEnabled">StepBack</onleft>
 			<onright condition="!Player.SeekEnabled">noop</onright>
-            <onright condition="Player.SeekEnabled + Player.Paused">PlayerControl(Play)</onright>
-			<onright condition="Player.SeekEnabled">back</onright>
+            <onright condition="Player.SeekEnabled + Player.Paused">StepForward</onright>
+			<onright condition="Player.SeekEnabled">StepForward</onright>
 			<onup condition="Skin.HasSetting(EnableOSDCastInfo)">50</onup>
 			<onup condition="Skin.HasSetting(EnableOSDCrewInfo)">51</onup>
 			<onup condition="![Skin.HasSetting(EnableOSDCastInfo) | Skin.HasSetting(EnableOSDCrewInfo)]">300</onup>

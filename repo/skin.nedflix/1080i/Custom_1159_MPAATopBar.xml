@@ -3,8 +3,8 @@
 <window type="dialog" id="1159">
     <animation effect="fade" delay="600" start="0" end="100" time="400">WindowOpen</animation>
     <animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
-    <visible>Skin.HasSetting(ShowMPAARatingBar) + !Window(Home).HasProperty(MPAATopBarShown) + !String.IsEmpty(Window(Home).Property(DialogMPAATopBar)) + String.IsEmpty(Window(Home).Property(DisableOSDCast))</visible>
-    <onload>AlarmClock(CloseMPAATopBar,ClearProperty(DialogMPAATopBar,Home),00:07,silent)</onload>
+    <visible>!Skin.HasSetting(HideMPAARatingBar) + !Window(Home).HasProperty(MPAATopBarShown) + !String.IsEmpty(Window(Home).Property(DialogMPAATopBar)) + String.IsEmpty(Window(Home).Property(DisableOSDCast))</visible>
+    <onload>AlarmClock(CloseMPAATopBar,ClearProperty(DialogMPAATopBar,Home),00:10,silent)</onload>
 	<onload>Skin.Reset(EnableOSDInfo)</onload>
 	<onload>Skin.Reset(EnableOSDCastInfo)</onload>
 	<onload>Skin.Reset(EnableOSDCrewInfo)</onload>
@@ -36,16 +36,24 @@
                     <colordiffuse>FF1ED760</colordiffuse>
                     <aspectratio>stretch</aspectratio>
                 </control>
-                <control type="label">
-					<animation effect="fade" start="0" end="100" time="350" delay="1000" condition="true">WindowOpen</animation>
-                    <width>auto</width>
-                    <height>100%</height>
-                    <align>left</align>
-                    <aligny>center</aligny>
-                    <font>Reg34</font>
-                    <textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
-                    <label>$VAR[VideoRatingTopBarLabel]</label>
-                </control>
+				  <control type="label">
+					<width>auto</width>
+					<height>100%</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>Reg34</font>
+					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
+					<label>31023</label>
+				</control>		
+				<control type="image">
+					<animation effect="fade" start="0" end="100" time="300" delay="200" condition="true">WindowOpen</animation>					
+					<posy>10</posy>
+					<width>60</width>
+					<height>60</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[mediaflagsOSD_large_rating_UK_icons]</texture>
+					<colordiffuse></colordiffuse>
+				</control>
             </control>
         </control>
     </controls>

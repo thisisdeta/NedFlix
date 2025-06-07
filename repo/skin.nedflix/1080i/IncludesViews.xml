@@ -647,7 +647,7 @@
                     <posx>7</posx>
                     <posy>-7</posy>
                     <align>left</align>
-                    <label>[UPPERCASE]$VAR[mediatitle][/UPPERCASE]</label>
+                    <label></label>
                     <textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
                     <scroll>false</scroll>
                     <font>Bold30</font>
@@ -683,14 +683,14 @@
                     <posy>17</posy>
                     <width>28</width>
                     <height>28</height>
-                    <texture>dialogs/videoinfo/time.png</texture>
+                    <texture></texture>
                     <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
                 </control>
                 <control type="label">
                     <posx>60</posx>
                     <posy>0</posy>
                     <align>left</align>
-                    <label>$VAR[ListItemDuration]</label>
+                    <label></label>
                     <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                     <scroll>false</scroll>
                 </control>
@@ -970,16 +970,40 @@
         [Control.IsVisible(55) + Skin.HasSetting(View55_DetailsShowInfo)] |
         [Control.IsVisible(53) + Skin.HasSetting(View53_DetailsShowInfo)]]
         </visible>
-        <posx>52</posx>
+        <posx>0</posx>
         <top>207</top>
         <height>736</height>
 		<control type="group">
 		<visible>!Window.IsActive(Music)</visible>
-        <control type="image">
-            <height>360</height>
+		<control type="image">
+			<visible>!String.Contains(ListItem.Title, dynamite)</visible>
+			<visible>!String.Contains(ListItem.Title, collision)</visible>
+			<posy>-40</posy>
+            <height>200</height>
+			<width>550</width>
             <bordersize>8</bordersize>
             <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-            <texture background="true" diffuse="home/home_matte2.png" fallback="video.png">$VAR[DetailsFanArtImage]</texture>           
+            <texture background="true" diffuse="home/home_matte2.png" fallback="video.png">$VAR[PosterThumb]</texture>           
+			<fadetime>350</fadetime>
+        </control>
+        <control type="image">
+			<visible>String.Contains(ListItem.Title, aew) + String.Contains(ListItem.Title, dynamite)</visible>
+			<posy>-40</posy>
+            <height>800</height>
+			<width>550</width>
+            <bordersize>8</bordersize>
+            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+            <texture background="true" diffuse="home/home_matte2.png" fallback="video.png">custom_art/Dynamite001.jpg</texture>           
+			<fadetime>350</fadetime>
+        </control>
+		<control type="image">
+			<visible>String.Contains(ListItem.Title, aew) + String.Contains(ListItem.Title, collision)</visible>
+			<posy>-40</posy>
+            <height>800</height>
+			<width>550</width>
+            <bordersize>8</bordersize>
+            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+            <texture background="true" diffuse="home/home_matte2.png" fallback="video.png">custom_art/Collision001.jpg</texture>           
 			<fadetime>350</fadetime>
         </control>
 		<control type="image">
@@ -994,9 +1018,10 @@
             <visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
         </control>
 		<control type="group">
-            <right>8</right>
+            <top>-32</top>
+            <right>133</right>
             <posy>8</posy>
-        <include>WatchedIndicatorNormal</include>
+        <include>WatchedIndicatorLarge</include>
         </control>
 		</control>
 		<control type="group">		    
@@ -1055,7 +1080,7 @@
 				<width>607</width>
 				<font>Bold28</font>
 				<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
-				<label>[UPPERCASE]$VAR[mediatitle][/UPPERCASE]</label>
+				<label></label>
 				<scroll>false</scroll>
 			</control>
 			<control type="group">

@@ -1729,6 +1729,21 @@
             <label>31588</label>
 			<visible>Skin.HasSetting(UseBingieOSD)</visible>
         </control>
+		<!-- Hide MPAA Rating Bar -->
+        <control type="radiobutton" id="9696">
+            <include>SkinSettings_Button</include>
+            <label>31903</label>
+            <onclick>Skin.ToggleSetting(HideMPAARatingBar)</onclick>
+            <selected>Skin.HasSetting(HideMPAARatingBar)</selected>			
+        </control>
+		<!-- Enable Current Time/Clock -->
+        <control type="radiobutton" id="6912">
+            <include>SkinSettings_Button</include>
+            <label>31908</label>
+            <onclick>Skin.ToggleSetting(EnableSoloClock)</onclick>
+            <selected>Skin.HasSetting(EnableSoloClock)</selected>
+			<visible>Skin.HasSetting(UseBingieOSD)</visible>
+        </control>
         <!-- Enable Finish Time, Current Time, & Total Duration for OSD Playback -->
         <control type="radiobutton" id="2024">
             <include>SkinSettings_Button</include>
@@ -1743,14 +1758,7 @@
             <label>31904</label>
             <onclick>Skin.ToggleSetting(ShowYearAfterTitle)</onclick>
             <selected>Skin.HasSetting(ShowYearAfterTitle)</selected>			
-        </control>
-		<!-- Enable MPAA Rating Bar -->
-        <control type="radiobutton" id="9696">
-            <include>SkinSettings_Button</include>
-            <label>31903</label>
-            <onclick>Skin.ToggleSetting(ShowMPAARatingBar)</onclick>
-            <selected>Skin.HasSetting(ShowMPAARatingBar)</selected>			
-        </control>
+        </control>		
 		<!-- Enable Seek/Jump Indicator -->
 		<control type="radiobutton" id="2027">
             <include>SkinSettings_Button</include>

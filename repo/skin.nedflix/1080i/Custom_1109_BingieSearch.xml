@@ -179,7 +179,7 @@
             </control>
 			
 			<control type="label" id="987">
-                <visible>!$EXP[IsActualKeyboardActive] + Control.HasFocus(660) + !Container(660).IsUpdating</visible>
+                <visible>!$EXP[IsActualKeyboardActive] + Control.HasFocus(660)</visible>
                 <top>5</top>
                 <width>1130</width>
                 <height>70</height>
@@ -194,7 +194,7 @@
             </control>
 			
 			<control type="label" id="987">
-                <visible>!$EXP[IsActualKeyboardActive] + Control.HasFocus(670) + !Container(670).IsUpdating</visible>
+                <visible>!$EXP[IsActualKeyboardActive] + Control.HasFocus(670)</visible>
                 <top>5</top>
                 <width>1130</width>
                 <height>70</height>

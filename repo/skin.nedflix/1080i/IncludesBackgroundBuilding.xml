@@ -102,12 +102,13 @@
             <loop>yes</loop>
             <include condition="Skin.HasSetting(BackgroundAnimation)">BackgroundAnimation</include>
         </control>
-        <!-- fanart image background (hidden with visibility conditions)-->
-        <control type="image" id="99006">
+        <!-- fanart image background (hidden with visibility conditions)-->		
+		<control type="image" id="99006">
             <left>-1</left>
             <top>-1</top>
             <width>1</width>
             <height>1</height>
+			<visible></visible>
             <texture background="true">$VAR[fanartBackground]</texture>
             <include condition="Window.IsMedia">disabledFanart</include>
         </control>
@@ -357,9 +358,21 @@
     <variable name="ItemArtContentRandomizer">
         <value condition="!String.IsEmpty(ListItem.Property(path2)) + Integer.IsGreater(Window(Home).Property(Random),30)">$INFO[ListItem.Property(path2)]</value>
         <value>$INFO[ListItem.Property(path)]</value>
-    </variable>
+    </variable>	
 
     <variable name="fanartBackground">
+		<!-- wrestling -->
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + String.Contains(ListItem.Title, dynamite)">special://skin/media//dyn001.jpg</value>
+        <value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + String.Contains(ListItem.Title, collision)">special://skin/media//coll002.jpg</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, aew) + !String.Contains(ListItem.Title, dynamite) + !String.Contains(ListItem.Title, collision)">special://skin/media//aewppv002.jpg</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, wwe) + String.Contains(ListItem.Title, raw)">special://skin/media//raw001.jpg</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, wwe) + String.Contains(ListItem.Title, smackdown)">special://skin/media//smackdown001.jpg</value>	
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, wwe) + String.Contains(ListItem.Title, main event) + !String.Contains(ListItem.Title, saturday)">special://skin/media//mainevent001.jpg</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, wwe) + String.Contains(ListItem.Title, main event) + String.Contains(ListItem.Title, saturday)">special://skin/media//SNmainevent001.jpg</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, wwe) + String.Contains(ListItem.Title, nxt)">special://skin/media//nxt001.jpg</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, wwe) + String.Contains(ListItem.Title, evolve)">special://skin/media//evolve001.jpg</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, wwe) + String.Contains(ListItem.Title, lfg)">special://skin/media//lfg001.jpg</value>
+		<value condition="Window.IsActive(1120) + String.Contains(ListItem.Title, wwe) + String.Contains(ListItem.Title, greatest moments)">special://skin/media//greatestmoments001.jpg</value>
 		<!-- pvr -->
 		<value condition="!String.IsEmpty(Container(99950).ListItem.Art(fanart)) + [Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch)]">$INFO[Container(99950).ListItem.Art(fanart)]</value> 
 		<!-- extra fanart -->

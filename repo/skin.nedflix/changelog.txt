@@ -1,19 +1,35 @@
+Version 1.0.8
+
+- You can now enable or disable the clock on it's own on the OSD
+- Changed "Show MPAA rating bar" to "Hide MPAA rating bar" in the OSD options
+- Changed BBFC rating symbols to the old style ones from the 90s/2000s
+- Added custom not rated (NR) symbol
+- Not rated symbol now shows for any media without a rating
+- Rating symbols now show instead of just text on the MPAA rating bar
+- Video information closes again when you click play
+- Modified 'List Details' view to look better in ReleaseBB
+- StepBack and StepForward now work when the OSD is open on the pause button
+- More options are now shown on the video information page without having to scroll
+- Now when pressing back on 'reviews & critics' it goes back to video info instead of closing
+- Added custom art and details for AEW events in the wrestling hub
+
 Version 1.0.7
 
-- Added new fonts and colours for titles without logos 
+- Added new fonts and colours for titles without logos
 - The wrestling hub now uses custom landscape widgets
+- Added DedFlix theme (via Nedflix Manager) 
 
 Version 1.0.6
 
 - Changed collection icon position to top left
 - Collection icon now shows even if you've also watched a film from the set
-- Similar now defaults to IMDB's 'more like this'
+- The similar titles function now defaults to IMDB's 'more like this'
 - Video information no longer closes when you click play
 
 Version 1.0.5
 
 - TMDB helper widgets for films and TV now open with Fen Light (Woohoo!)
-- Added release year for cast and crew info
+- Added release year after titles in the cast and crew info
 - Added option to hide user comments on reviews & critics page
 - Increased options for number of roles to show in cast info
 - Fixed incorrectly labelled options
